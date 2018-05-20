@@ -13,7 +13,7 @@ class Player {
         this.getData = function() {
             var dataSet = { money: money, health: health, sanity: sanity };
             return dataSet;
-        };
+        }
 
         this.setSanity = function(n) {
             sanity = n;

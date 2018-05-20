@@ -1,6 +1,6 @@
-import textRenderer from './TextRenderer.js';
 import webStorage from './WebStorage.js';
 import player from './Player.js';
+import testScene from './Scene.js';
 
 class SceneManager {
 
@@ -19,22 +19,20 @@ class SceneManager {
         //Public Methods
         this.getLocation = function() {
             return location;
-        };
+        }
 
-        this.render = function() {
-            //Render Test
-            textRenderer.drawText("玩家狀態\n");
-            textRenderer.drawText(JSON.stringify(player.getData()));
-            textRenderer.drawButton("讀書");
-            textRenderer.drawButton("吃飯");
-            textRenderer.drawButton("睡覺");
+        this.renderScene = function() {
+            scenes[location].renderScene();
         }
 
         //Make sure there's only one object.
         if (!SceneManager.instance) {
             SceneManager.instance = this;
+            scenes[0] = testScene;
         }
+
         return SceneManager.instance;
+
     }
 
 }
@@ -42,4 +40,4 @@ class SceneManager {
 const sceneManager = new SceneManager();
 Object.freeze(sceneManager);
 
-sceneManager.render();
+sceneManager.renderScene();
