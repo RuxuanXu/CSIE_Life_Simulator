@@ -10,8 +10,9 @@ class Player {
         var sanity = 100;
 
         //Public Methods
-        this.getSanity = function() {
-            return sanity;
+        this.getData = function() {
+            var dataSet = { money: money, health: health, sanity: sanity };
+            return dataSet;
         };
 
         this.setSanity = function(n) {
@@ -30,3 +31,5 @@ class Player {
 
 const player = new Player();
 Object.freeze(player);
+
+export default player;
