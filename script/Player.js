@@ -1,10 +1,22 @@
 import skillManager from './SkillManager.js';
-import stateManager from './StateManager.js';
-import sceneManager from './SceneManager.js';
 
 class Player {
 
     constructor() {
+
+        //Private Members
+        var money = 5000;
+        var health = 100;
+        var sanity = 100;
+
+        //Public Methods
+        this.getSanity = function() {
+            return sanity;
+        };
+
+        this.setSanity = function(n) {
+            sanity = n;
+        }
 
         //Make sure there's only one object.
         if (!Player.instance) {

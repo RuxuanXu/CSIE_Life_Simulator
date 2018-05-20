@@ -1,3 +1,5 @@
+import textRenderer from './TextRenderer.js';
+
 class SceneManager {
 
     constructor() {

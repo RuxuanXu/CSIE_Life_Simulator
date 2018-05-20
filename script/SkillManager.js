@@ -2,9 +2,12 @@ class SkillManager {
 
     constructor() {
 
+        //Private Members
+
+        //Public Methods
+
         //Make sure there's only one object.
         if (!SkillManager.instance) {
-            this.data = 666;
             SkillManager.instance = this;
         }
         return SkillManager.instance;
