@@ -1,6 +1,6 @@
 # CSIE_Life_Simulator
 
-Play Online(https://ruxuanxu.github.io/CSIE_Life_Simulator/)
+[Play Online](https://ruxuanxu.github.io/CSIE_Life_Simulator/)
 
 ## Development
 
