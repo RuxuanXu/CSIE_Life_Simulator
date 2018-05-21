@@ -23,22 +23,8 @@ class Scene {
     }
 }
 
-class TestScene extends Scene {
-
-    constructor() {
-
-        //setting
-        if (!TestScene.instance) {
-
-            super(); //call parent class
-            this.addElement(viewElement.playerStateBox());
-            this.addElement(viewElement.readingButton());
-
-        }
-
-        return TestScene.instance;
-    }
-}
-
-const testScene = new TestScene();
+//Adding new Scene
+var testScene = new Scene();
+testScene.addElement(viewElement.playerStateBox());
+testScene.addElement(viewElement.readingButton());
 export default testScene;
