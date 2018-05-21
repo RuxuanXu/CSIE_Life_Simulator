@@ -6,15 +6,13 @@ class ViewElement {
 
         //Public Methods
         this.playerStateBox = function() {
-            var str = "玩家狀態" + JSON.stringify(player.getData());
-            var obj = { text: str };
-            return obj;
+            var str = "<p>玩家狀態" + JSON.stringify(player.getData()) + "</p>";
+            return str;
         }
 
         this.readingButton = function() {
-            var str = "讀書";
-            var obj = { btn: str };
-            return obj;
+            var str = "<button type=\"button\">讀書</button>";
+            return str;
         }
 
     }

@@ -4,21 +4,15 @@ class TextRenderer {
     constructor() {
 
         //Private Methods
-        var appendToBody = function(element, str) {
-            var text = document.createTextNode(str);
-            element.appendChild(text);
-            document.body.appendChild(element);
+        function append(str) {
+            var div = document.createElement("div");
+            div.innerHTML = str;
+            document.querySelector("body").appendChild(div.firstChild);
         }
 
         //Public Methods
-        this.drawText = function(str) {
-            var para = document.createElement("p");
-            appendToBody(para, str);
-        }
-
-        this.drawButton = function(str) {
-            var btn = document.createElement("Button");
-            appendToBody(btn, str);
+        this.drawElement = function(str) {
+            append(str);
         }
     }
 

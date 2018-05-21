@@ -6,36 +6,20 @@ class Scene {
     constructor() {
 
         //Private Members
-        var textElements = [];
-        var buttonElements = [];
+        var viewElements = [];
 
         //Public Methods
         this.addElement = function(obj) {
-
-            for (var key in obj) {
-
-                if (key == "text") {
-                    textElements.push(obj[key]);
-                }
-
-                if (key == "btn") {
-                    buttonElements.push(obj[key]);
-                }
-
-            }
+            viewElements.push(obj);
         }
 
         this.renderScene = function() {
 
-            for (var i in textElements) {
-                textRenderer.drawText(textElements[i]);
+            for (var i in viewElements) {
+                textRenderer.drawElement(viewElements[i]);
             }
 
-            for (var i in buttonElements) {
-                textRenderer.drawButton(buttonElements[i]);
-            }
         }
-
     }
 }
 
@@ -46,8 +30,7 @@ class TestScene extends Scene {
         //setting
         if (!TestScene.instance) {
 
-            super();
-
+            super(); //call parent class
             this.addElement(viewElement.playerStateBox());
             this.addElement(viewElement.readingButton());
 
