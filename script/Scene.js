@@ -1,4 +1,4 @@
-import textRenderer from './TextRenderer.js';
+import renderer from './Renderer.js';
 import viewElement from './ViewElement.js';
 
 class Scene {
@@ -16,7 +16,7 @@ class Scene {
         this.renderScene = function() {
 
             for (var i in viewElements) {
-                textRenderer.drawElement(viewElements[i]);
+                renderer.drawElement(viewElements[i]);
             }
 
         }

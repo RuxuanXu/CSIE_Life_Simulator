@@ -1,5 +1,5 @@
 //interface
-class TextRenderer {
+class Renderer {
 
     constructor() {
 
@@ -18,7 +18,7 @@ class TextRenderer {
 
 }
 
-const textRenderer = new TextRenderer();
-Object.freeze(textRenderer);
+const renderer = new Renderer();
+Object.freeze(renderer);
 
-export default textRenderer;
+export default renderer;
