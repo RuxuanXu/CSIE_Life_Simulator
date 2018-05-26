@@ -7,16 +7,11 @@ class Player {
         //Private Members
         var money = 5000;
         var health = 100;
-        var sanity = 100;
 
         //Public Methods
         this.getData = function() {
-            var dataSet = { money: money, health: health, sanity: sanity };
+            var dataSet = { money: money, health: health};
             return dataSet;
-        }
-
-        this.setSanity = function(n) {
-            sanity = n;
         }
 
         //Make sure there's only one object.

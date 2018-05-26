@@ -26,5 +26,5 @@ class Scene {
 //Adding new Scene
 var testScene = new Scene();
 testScene.addElement(viewElement.playerStateBox());
-testScene.addElement(viewElement.readingButton());
+testScene.addElement(viewElement.button("讀書", "read"));
 export default testScene;

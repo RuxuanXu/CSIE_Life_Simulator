@@ -16,6 +16,6 @@ Handler.extensions_map={
 
 httpd = socketserver.TCPServer(("", PORT), Handler)
 
-print("Serving at http://localhost:4000")
+print("Serving at http://localhost:" + str(PORT))
 httpd.serve_forever()
 

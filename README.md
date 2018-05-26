@@ -8,7 +8,7 @@ To test the program locally, setting up a local HTTP server is necessary. (See [
 
 With [Python3](https://www.python.org/downloads/) installed, execute:
 ```
-$ python3 server.py
+$ py server.py
 ```
 
 ## Program Design
