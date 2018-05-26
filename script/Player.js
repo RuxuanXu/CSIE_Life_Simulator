@@ -10,8 +10,14 @@ class Player {
 
         //Public Methods
         this.getData = function() {
-            var dataSet = { money: money, health: health};
+            var dataSet = { money: money, health: health };
             return dataSet;
+        }
+        this.addMoney = function(amount) {
+            money += amount;
+        }
+        this.addHealth = function(amount) {
+            health += amount;
         }
 
         //Make sure there's only one object.

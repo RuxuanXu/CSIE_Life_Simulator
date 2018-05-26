@@ -27,7 +27,7 @@ class Renderer {
 
         //Public Methods
         this.drawElement = function(div, str) {
-            if(!div) return append(str);
+            if (!div) return append(str);
             return editDiv(div, str);
         }
     }

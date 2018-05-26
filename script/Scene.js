@@ -1,6 +1,5 @@
 import renderer from './Renderer.js';
 import viewElement from './ViewElement.js';
-import eventHandler from './EventHandler.js';
 
 class Scene {
 
@@ -11,16 +10,16 @@ class Scene {
         var div = [];
 
         //Public Methods
-        this.update = function(){
+        this.update = function() {
             return 0;
             //declare after create object
         }
 
-        this.updateElements = function(){
+        this.updateElements = function() {
             viewElements = [];
             this.update();
         }
-        
+
         this.addElement = function(obj) {
             viewElements.push(obj);
             div.push(0);
@@ -40,19 +39,11 @@ class Scene {
 
 //Adding new Scene
 var testScene = new Scene();
-testScene.update = function(){
+testScene.update = function() {
     testScene.addElement(viewElement.timeBox(new Date()));
     testScene.addElement(viewElement.playerStateBox());
-    testScene.addElement(viewElement.button("讀書", "read"));
+    testScene.addElement(viewElement.button("工作", "work", "window.triggerEvent('work')"));
     testScene.addElement(viewElement.eventBox());
-    var btn = document.getElementsByName("read").item(0);
-    if(btn){
-        btn.addEventListener("click", function(){ 
-            eventHandler.triggerEvent("read"); 
-        });
-    }
 }
 
 export default testScene;
-
-

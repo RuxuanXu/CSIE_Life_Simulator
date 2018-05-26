@@ -1,4 +1,4 @@
-import testEvent from './Event.js';
+import workEvent from './Event.js';
 
 class EventHandler {
 
@@ -12,13 +12,16 @@ class EventHandler {
             events.push(evt);
         }
 
-        this.triggerEvent = function(name) {
-            console.log(name,events);
-            for (var i in events) {
-                if(events[i].getData().name == name){
-                    events[i].execute();
+        this.addFuncToWindow = function() {
+
+            window.triggerEvent = function(name) {
+                for (var i in events) {
+                    if (events[i].getData().name == name) {
+                        events[i].execute();
+                    }
                 }
             }
+            return true;
         }
 
         //Make sure there's only one object.
@@ -32,6 +35,6 @@ class EventHandler {
 
 const eventHandler = new EventHandler();
 Object.freeze(eventHandler);
-eventHandler.addEvent(testEvent);
+eventHandler.addEvent(workEvent);
 
 export default eventHandler;

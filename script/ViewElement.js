@@ -5,21 +5,21 @@ class ViewElement {
     constructor() {
 
         //Public Methods
-        this.eventBox = function(){ 
-            var str = "<div class=\"sidebar\">" + 
-            "event content"+
-            "</div>";
+        this.eventBox = function() {
+            var str = "<div class=\"sidebar\">" +
+                "event content" +
+                "</div>";
             return str;
         }
 
-        this.timeBox = function(time){
+        this.timeBox = function(time) {
             var str = "<div class=\"time\">" +
-            "<table style=\"width: 200px;\" border=\"1\">"+
-            "<tr><td style=\"text-align: center;\">"+
-            "日曆" + 
-            "</td></tr><tr style=\"height: 60px;\"><td> " +
-            time + 
-            "</td></tr></table></div>";
+                "<table style=\"width: 200px;\" border=\"1\">" +
+                "<tr><td style=\"text-align: center;\">" +
+                "日曆" +
+                "</td></tr><tr style=\"height: 60px;\"><td> " +
+                time +
+                "</td></tr></table></div>";
             return str;
         }
 
@@ -27,20 +27,21 @@ class ViewElement {
             var money = JSON.stringify(player.getData().money);
             var health = JSON.stringify(player.getData().health);
             var str = "<div class=\"player\">" +
-            "<table style=\"width: 200px;\">"+
-            "<tr><td style=\"text-align: center;\">"+
-            "玩家狀態" + 
-            "</td></tr><tr style=\"height: 60px;\"><td> " +
-            "金錢: " + money + 
-            "<br>健康: " + health + 
-            "</td></tr></table></div>";
+                "<table style=\"width: 200px;\">" +
+                "<tr><td style=\"text-align: center;\">" +
+                "玩家狀態" +
+                "</td></tr><tr style=\"height: 60px;\"><td> " +
+                "金錢: " + money +
+                "<br>體力: " + health +
+                "</td></tr></table></div>";
             return str;
         }
 
-        this.button = function(txt, name) {
-            var str = "<button type=\"button\"" + 
-            "name=\"" + name + "\"" +
-            ">" + txt + "</button>";
+        this.button = function(txt, name, func) {
+            var str = "<button type=\"button\"" +
+                "name=\"" + name + "\"" +
+                "onclick=\"" + func + "\"" +
+                ">" + txt + "</button>";
             return str;
         }
 
