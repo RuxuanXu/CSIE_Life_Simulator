@@ -2,7 +2,16 @@
 class WebStorage {
 
     constructor() {
+
         //Public Methods
+        this.storeCache = function(key, data) {
+            localStorage.setItem(JSON.stringify(key), JSON.stringify(data));
+        }
+
+        this.getCache = function(key) {
+            return localStorage.getItem(JSON.stringify(key));
+        }
+
     }
 
 }
