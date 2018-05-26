@@ -44,6 +44,7 @@ testScene.update = function(){
     testScene.addElement(viewElement.timeBox(new Date()));
     testScene.addElement(viewElement.playerStateBox());
     testScene.addElement(viewElement.button("讀書", "read"));
+    testScene.addElement(viewElement.eventBox());
 }
 
 export default testScene;

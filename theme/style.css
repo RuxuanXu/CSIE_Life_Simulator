@@ -6,3 +6,26 @@ h1 {
     text-align: center;
     color: #1B3440;
 }
+
+div.sidebar {
+    top: 120px;
+    bottom:20px;
+    width: 300px;
+    background-color: #F5F1D5;
+}
+
+div.player {
+    top: 120px;
+    left: 320px;
+    width: 200px;
+    height: 120px;
+    background-color: #F5F1D5;
+}
+
+div.time {
+    top: 120px;
+    left: 320px;
+    width: 200px;
+    height: 120px;
+    background-color: #F5F1D5;
+}

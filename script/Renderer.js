@@ -14,7 +14,7 @@ class Renderer {
             div.id = "id"
             $('#id').html(str);
             div.id = ''
-            document.querySelector("body").appendChild(div);
+            $('#game').append(div);
             return div;
         }
 
