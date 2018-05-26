@@ -1,18 +1,34 @@
+import './jquery-3.3.1.min.js';
+var $ = window.$
+
 //interface
 class Renderer {
 
     constructor() {
 
+        var div = 0;
         //Private Methods
+
         function append(str) {
-            var div = document.createElement("div");
-            div.innerHTML = str;
-            document.querySelector("body").appendChild(div.firstChild);
+            div = document.createElement("div");
+            div.id = "id"
+            $('#id').html(str);
+            div.id = ''
+            document.querySelector("body").appendChild(div);
+            return div;
+        }
+
+        function editDiv(div, str) {
+            div.id = "id"
+            $('#id').html(str);
+            div.id = ''
+            return div;
         }
 
         //Public Methods
-        this.drawElement = function(str) {
-            append(str);
+        this.drawElement = function(div, str) {
+            if(!div) return append(str);
+            return editDiv(div, str);
         }
     }
 

@@ -21,6 +21,10 @@ class SceneManager {
             return location;
         }
 
+        this.getCurrentTime = function(){
+            return currentTime;
+        }
+
         this.renderScene = function() {
             scenes[location].renderScene();
         }
@@ -39,5 +43,4 @@ class SceneManager {
 
 const sceneManager = new SceneManager();
 Object.freeze(sceneManager);
-
-sceneManager.renderScene();
+export default sceneManager;

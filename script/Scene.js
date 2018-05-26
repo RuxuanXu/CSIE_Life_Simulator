@@ -7,16 +7,31 @@ class Scene {
 
         //Private Members
         var viewElements = [];
+        var div = [];
 
         //Public Methods
+
+        this.update = function(){
+            return 0;
+            //declare after create object
+        }
+
+        this.updateElements = function(){
+            viewElements = [];
+            this.update();
+        }
+        
         this.addElement = function(obj) {
             viewElements.push(obj);
+            div.push(0);
         }
 
         this.renderScene = function() {
 
+            this.updateElements();
+
             for (var i in viewElements) {
-                renderer.drawElement(viewElements[i]);
+                div[i] = renderer.drawElement(div[i], viewElements[i]);
             }
 
         }
@@ -25,6 +40,12 @@ class Scene {
 
 //Adding new Scene
 var testScene = new Scene();
-testScene.addElement(viewElement.playerStateBox());
-testScene.addElement(viewElement.button("讀書", "read"));
+testScene.update = function(){
+    testScene.addElement(viewElement.timeBox(new Date()));
+    testScene.addElement(viewElement.playerStateBox());
+    testScene.addElement(viewElement.button("讀書", "read"));
+}
+
 export default testScene;
+
+
