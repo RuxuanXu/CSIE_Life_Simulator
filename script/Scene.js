@@ -1,5 +1,6 @@
 import renderer from './Renderer.js';
 import viewElement from './ViewElement.js';
+import eventHandler from './EventHandler.js';
 
 class Scene {
 
@@ -10,7 +11,6 @@ class Scene {
         var div = [];
 
         //Public Methods
-
         this.update = function(){
             return 0;
             //declare after create object
@@ -45,6 +45,12 @@ testScene.update = function(){
     testScene.addElement(viewElement.playerStateBox());
     testScene.addElement(viewElement.button("讀書", "read"));
     testScene.addElement(viewElement.eventBox());
+    var btn = document.getElementsByName("read").item(0);
+    if(btn){
+        btn.addEventListener("click", function(){ 
+            eventHandler.triggerEvent("read"); 
+        });
+    }
 }
 
 export default testScene;

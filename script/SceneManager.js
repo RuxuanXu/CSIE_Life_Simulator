@@ -29,10 +29,17 @@ class SceneManager {
             scenes[location].renderScene();
         }
 
+        this.changeScene = function(newLocation) {
+            location = newLocation;
+        }
+
         //Make sure there's only one object.
         if (!SceneManager.instance) {
             SceneManager.instance = this;
+
+            //Declare all scenes here
             scenes[0] = testScene;
+            
         }
 
         return SceneManager.instance;

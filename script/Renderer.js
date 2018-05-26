@@ -11,17 +11,17 @@ class Renderer {
 
         function append(str) {
             div = document.createElement("div");
-            div.id = "id"
+            div.id = "id";
             $('#id').html(str);
-            div.id = ''
+            div.id = '';
             $('#game').append(div);
             return div;
         }
 
         function editDiv(div, str) {
-            div.id = "id"
+            div.id = "id";
             $('#id').html(str);
-            div.id = ''
+            div.id = '';
             return div;
         }
 

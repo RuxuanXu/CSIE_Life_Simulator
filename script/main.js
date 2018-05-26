@@ -5,3 +5,7 @@ function mainLoop(){
 }
 
 setInterval(mainLoop,500);
+
+function execute(){
+    console.log("The button is triggered.");
+}
