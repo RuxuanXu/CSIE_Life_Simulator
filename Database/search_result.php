@@ -37,9 +37,9 @@ button {
 				<div>
 				<?php
 				
-				$link=mysql_connect("localhost", "root", "12345678");
-					mysql_select_db("oo_db") or die("No database.");
-				$e_id=$_POST['e_id'];
+				require_once 'sql_class.php';
+				//$search=$_POST['search'];
+				$e_id=$_COOKIE['id'];
 				$admin=$_COOKIE['admin'];
 				if($search==null)
 				{
@@ -49,22 +49,16 @@ button {
 				{
 					$query="select * from quiz where e_id='$e_id' ;";
 				}
-				$result=mysql_query($query,$link)
-						or die ('search all');
-					echo "<table border='1'>";
-					if($admin=='0'){
-					echo "<td>Question_id</td><td>E_id</td><td>Question</td><td>Answer</td>";
-					}
-					else{
-					echo "<td>Question_id</td><td>E_id</td><td>Question</td><td>Answer</td>";
-					}
-					while(list($q_id,$e_id,$question,$answer)=mysql_fetch_row($result))
-					{
-						echo"<tr>";
-						echo "<td>$q_id</td><td>$e_id</td><td>$question</td><td>$answer</td>";
-						echo"</tr>";
-					}
-					echo "</table>";
+				$result=$db->query($query);
+				echo "<table border='1'>";
+				echo "<td>Question_id</td><td>E_id</td><td>Question</td><td>Answer</td>";
+				while(list($q_id,$e_id,$question,$answer)=mysql_fetch_row($result))
+				{
+					echo"<tr>";
+					echo "<td>$q_id</td><td>$e_id</td><td>$question</td><td>$answer</td>";
+					echo"</tr>";
+				}
+				echo "</table>";
 				?>
 				<br><br><br>
 				</div>
