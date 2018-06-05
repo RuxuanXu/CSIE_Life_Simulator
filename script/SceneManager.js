@@ -1,6 +1,5 @@
-import webStorage from './WebStorage.js';
 import player from './Player.js';
-import testScene from './Scene.js';
+import home from './Scene.js';
 
 class SceneManager {
 
@@ -10,6 +9,7 @@ class SceneManager {
         var scenes = [];
         var location = 0;
         var currentTime = new Date();
+        var changeScene = 0;
 
         //Private Methods
         var callScene = function(idx) {
@@ -21,15 +21,19 @@ class SceneManager {
             return location;
         }
 
-        this.getCurrentTime = function(){
+        this.getCurrentTime = function() {
             return currentTime;
         }
 
         this.renderScene = function() {
+            if (!changeScene) {
+                scenes[location].renderFixed();
+                changeScene = 1;
+            }
             scenes[location].renderScene();
         }
 
-        this.changeScene = function(newLocation) {
+        this.updateLocation = function(newLocation) {
             location = newLocation;
         }
 
@@ -38,8 +42,8 @@ class SceneManager {
             SceneManager.instance = this;
 
             //Declare all scenes here
-            scenes[0] = testScene;
-            
+            scenes[0] = home;
+
         }
 
         return SceneManager.instance;

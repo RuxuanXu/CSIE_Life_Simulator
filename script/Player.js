@@ -8,10 +8,13 @@ class Player {
         //Private Members
         var money = 5000;
         var health = 100;
+        var point = 0;
+        var missions = [];
+        var items = [];
 
         //Public Methods
         this.getData = function() {
-            var dataSet = { money: money, health: health };
+            var dataSet = { money: money, point: point, health: health, missions: missions };
             return dataSet;
         }
         this.addMoney = function(amount) {
@@ -21,6 +24,9 @@ class Player {
         this.addHealth = function(amount) {
             health += amount;
             webStorage.storeCache('health', health);
+        }
+        this.addMission = function(mission) {
+            missions.push(mission);
         }
 
         //Make sure there's only one object.
@@ -42,5 +48,9 @@ class Player {
 
 const player = new Player();
 Object.freeze(player);
+player.addMission("上學");
+player.addMission("工作");
+player.addMission("吃飯");
+player.addMission("睡覺");
 
 export default player;

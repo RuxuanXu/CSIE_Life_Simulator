@@ -26,4 +26,5 @@ workEvent.execute = function() {
     player.addMoney(10);
     player.addHealth(-1);
 }
+
 export default workEvent;

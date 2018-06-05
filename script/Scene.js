@@ -7,7 +7,9 @@ class Scene {
 
         //Private Members
         var viewElements = [];
+        var fixedElements = [];
         var div = [];
+        var fixedDiv = [];
 
         //Public Methods
         this.update = function() {
@@ -25,25 +27,35 @@ class Scene {
             div.push(0);
         }
 
+        this.addFixed = function(obj) {
+            fixedElements.push(obj);
+            fixedDiv.push(0);
+        }
+
+        this.renderFixed = function() {
+            for (var i in fixedElements) {
+                if (!fixedDiv[i])
+                    fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
+                renderer.drawElement(fixedDiv[i], fixedElements[i]);
+            }
+        }
+
         this.renderScene = function() {
-
             this.updateElements();
-
             for (var i in viewElements) {
                 div[i] = renderer.drawElement(div[i], viewElements[i]);
             }
-
         }
     }
 }
 
 //Adding new Scene
-var testScene = new Scene();
-testScene.update = function() {
-    testScene.addElement(viewElement.timeBox(new Date()));
-    testScene.addElement(viewElement.playerStateBox());
-    testScene.addElement(viewElement.button("工作", "work", "window.triggerEvent('work')"));
-    testScene.addElement(viewElement.eventBox());
+var home = new Scene();
+home.addFixed(viewElement.gameChoice());
+home.addFixed(viewElement.sceneChoice());
+home.addFixed(viewElement.missionList());
+home.update = function() {
+    home.addElement(viewElement.gameInfo());
 }
 
-export default testScene;
+export default home;
