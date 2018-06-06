@@ -30,6 +30,10 @@ class Renderer {
             if (!div) return append(str);
             return editDiv(div, str);
         }
+
+        this.clearPage = function() {
+            document.getElementById("game").innerHTML = "";
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-import player from './Player.js';
+import sceneManager from './SceneManager.js';
 
 class Event {
 
@@ -21,10 +21,21 @@ class Event {
     }
 }
 
-var workEvent = new Event("work");
-workEvent.execute = function() {
-    player.addMoney(10);
-    player.addHealth(-1);
+var lifeEvt = new Event("life");
+lifeEvt.execute = function() {
+    console.log("life");
+    if (sceneManager.getLocation() != 0) sceneManager.updateLocation(0);
 }
 
-export default workEvent;
+var skillEvt = new Event("skill");
+skillEvt.execute = function() {
+    console.log("skill");
+    if (sceneManager.getLocation() != 1) sceneManager.updateLocation(1);
+}
+
+var shopEvt = new Event("shop");
+shopEvt.execute = function() {
+    console.log("shop");
+}
+
+export { lifeEvt, skillEvt, shopEvt };

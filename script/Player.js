@@ -17,14 +17,21 @@ class Player {
             var dataSet = { money: money, point: point, health: health, missions: missions };
             return dataSet;
         }
+
+        this.getSkill = function() {
+            return skillManager.getSkill();
+        }
+
         this.addMoney = function(amount) {
             money += amount;
             webStorage.storeCache('money', money);
         }
+
         this.addHealth = function(amount) {
             health += amount;
             webStorage.storeCache('health', health);
         }
+
         this.addMission = function(mission) {
             missions.push(mission);
         }

@@ -1,5 +1,5 @@
 import player from './Player.js';
-import home from './Scene.js';
+import { lifeSce, skillSce } from './Scene.js';
 
 class SceneManager {
 
@@ -27,14 +27,16 @@ class SceneManager {
 
         this.renderScene = function() {
             if (!changeScene) {
+                scenes[location].changeScene();
                 scenes[location].renderFixed();
                 changeScene = 1;
             }
             scenes[location].renderScene();
         }
 
-        this.updateLocation = function(newLocation) {
-            location = newLocation;
+        this.updateLocation = function(n) {
+            location = n;
+            changeScene = 0;
         }
 
         //Make sure there's only one object.
@@ -42,7 +44,8 @@ class SceneManager {
             SceneManager.instance = this;
 
             //Declare all scenes here
-            scenes[0] = home;
+            scenes[0] = lifeSce;
+            scenes[1] = skillSce;
 
         }
 

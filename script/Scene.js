@@ -12,14 +12,24 @@ class Scene {
         var fixedDiv = [];
 
         //Public Methods
-        this.update = function() {
+        this.setView = function() {
+            return 0;
+            //declare after create object
+        }
+
+        this.setFixed = function() {
             return 0;
             //declare after create object
         }
 
         this.updateElements = function() {
             viewElements = [];
-            this.update();
+            this.setView();
+        }
+
+        this.updateFixed = function() {
+            fixedElements = [];
+            this.setFixed();
         }
 
         this.addElement = function(obj) {
@@ -32,10 +42,16 @@ class Scene {
             fixedDiv.push(0);
         }
 
+        this.changeScene = function() {
+            renderer.clearPage();
+            div = [];
+            fixedDiv = [];
+        }
+
         this.renderFixed = function() {
+            this.updateFixed();
             for (var i in fixedElements) {
-                if (!fixedDiv[i])
-                    fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
+                if (!fixedDiv[i]) fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
                 renderer.drawElement(fixedDiv[i], fixedElements[i]);
             }
         }
@@ -50,12 +66,24 @@ class Scene {
 }
 
 //Adding new Scene
-var home = new Scene();
-home.addFixed(viewElement.gameChoice());
-home.addFixed(viewElement.sceneChoice());
-home.addFixed(viewElement.missionList());
-home.update = function() {
-    home.addElement(viewElement.gameInfo());
+var lifeSce = new Scene();
+lifeSce.setFixed = function() {
+    lifeSce.addFixed(viewElement.gameChoice());
+    lifeSce.addFixed(viewElement.sceneChoice());
+    lifeSce.addFixed(viewElement.missionList());
+}
+lifeSce.setView = function() {
+    lifeSce.addElement(viewElement.gameInfo());
 }
 
-export default home;
+var skillSce = new Scene();
+skillSce.setFixed = function() {
+    skillSce.addFixed(viewElement.gameChoice());
+    skillSce.addFixed(viewElement.sceneChoice());
+}
+
+skillSce.setView = function() {
+    skillSce.addElement(viewElement.gameInfo());
+}
+
+export { lifeSce, skillSce };

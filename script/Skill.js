@@ -11,9 +11,9 @@ class Skill {
             return name;
         }
 
-        this.getLevel = function(){
+        this.getLevel = function() {
             return level;
         }
-        
+
     }
 }
