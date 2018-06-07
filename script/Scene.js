@@ -87,7 +87,6 @@ skillSce.setView = function() {
 }
 
 var shopSce = new Scene();
-shopSce.items = ["微積分教科書", "營養午餐"];
 shopSce.setFixed = function() {
     shopSce.addFixed(viewElement.gameChoice());
     shopSce.addFixed(viewElement.sceneChoice());
@@ -96,10 +95,6 @@ shopSce.setFixed = function() {
 
 shopSce.setView = function() {
     shopSce.addElement(viewElement.gameInfo());
-};
-
-shopSce.getItems = function() {
-    return this.items;
 };
 
 export { lifeSce, skillSce, shopSce };

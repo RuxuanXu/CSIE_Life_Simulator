@@ -1,6 +1,7 @@
 import skillManager from './SkillManager.js';
 import missionManager from './MissionManager.js';
 import webStorage from './WebStorage.js';
+import shop from './Shop.js';
 
 class Player {
 
@@ -10,6 +11,7 @@ class Player {
         var money = 5000;
         var health = 100;
         var point = 0;
+        var shopItems = [];
         var items = [];
 
         //Public Methods
@@ -23,6 +25,10 @@ class Player {
 
         this.getItems = function() {
             return items;
+        }
+
+        this.getShopItems = function() {
+            return shop.getItems();
         }
 
         this.getSkill = function() {

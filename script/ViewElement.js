@@ -1,5 +1,4 @@
 import player from './Player.js';
-import { shopSce } from './Scene.js';
 
 class ViewElement {
 
@@ -44,9 +43,13 @@ class ViewElement {
             return str;
         }
 
-        var item = function(title) {
+        var item = function(item) {
+            var title = item.name;
+            var price = item.price;
             var str = "<div class=\"box\">" +
-                "<div class=\"missionText\">" + title + "</div>" +
+                "<div class=\"missionText\">" + title +
+                "<br> $ " + price +
+                "</div>" +
                 button("購買", "shopBtn", "window.triggerEvent('buy')") +
                 "</div>";
             return str;
@@ -100,7 +103,7 @@ class ViewElement {
         }
 
         this.itemList = function() {
-            var items = shopSce.getItems();
+            var items = player.getShopItems();
             var str = "<div class=\"items\">";
             for (var i in items) {
                 str += item(items[i]);
