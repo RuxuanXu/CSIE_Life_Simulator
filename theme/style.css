@@ -129,7 +129,8 @@ button:active {
 }
 
 .mission,
-.items {
+.items,
+.skills {
     width: 96%;
     height: 48%;
     position: absolute;
@@ -140,7 +141,9 @@ button:active {
     overflow-y: scroll;
 }
 
-.missionText {
+.missionText,
+.skillText,
+.itemText {
     font-size: 20px;
     text-align: center;
     width: 60%;
@@ -153,7 +156,8 @@ button:active {
 }
 
 .missionBtn,
-.shopBtn {
+.shopBtn,
+.skillBtn {
     border-style: solid;
     border-radius: 20px;
     font-size: 18px;

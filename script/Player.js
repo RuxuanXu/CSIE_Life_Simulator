@@ -27,6 +27,10 @@ class Player {
             return items;
         }
 
+        this.getSkills = function() {
+            return skillManager.getSkills();
+        }
+
         this.getShopItems = function() {
             return shop.getItems();
         }

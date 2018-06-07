@@ -47,10 +47,22 @@ class ViewElement {
             var title = item.name;
             var price = item.price;
             var str = "<div class=\"box\">" +
-                "<div class=\"missionText\">" + title +
+                "<div class=\"itemText\">" + title +
                 "<br> $ " + price +
                 "</div>" +
                 button("購買", "shopBtn", "window.triggerEvent('buy')") +
+                "</div>";
+            return str;
+        }
+
+        var skill = function(obj) {
+            var title = obj.name;
+            var level = obj.level;
+            var str = "<div class=\"box\">" +
+                "<div class=\"skillText\">" + title +
+                "<br> Level " + level +
+                "</div>" +
+                button("升級", "skillBtn", "window.triggerEvent('upgrade')") +
                 "</div>";
             return str;
         }
@@ -64,7 +76,6 @@ class ViewElement {
         //Public Methods
         this.gameChoice = function() {
             var str = "<div class=\"game_choose\">" +
-                button("關於", "menuBtn", "window.triggerEvent('about')") +
                 button("存檔", "menuBtn", "window.triggerEvent('save')") +
                 button("讀檔", "menuBtn", "window.triggerEvent('load')") +
                 button("關燈", "menuBtn", "window.triggerEvent('light')") +
@@ -111,6 +122,18 @@ class ViewElement {
             }
             str += "</div>";
             return str;
+        }
+
+        this.skillList = function() {
+            var skills = player.getSkills();
+            var str = "<div class=\"skills\">";
+            for (var i in skills) {
+                str += skill(skills[i]);
+                str += "<div style=\"line-height:50%;\"><br></div>";
+            }
+            str += "</div>";
+            return str;
+
         }
     }
 }

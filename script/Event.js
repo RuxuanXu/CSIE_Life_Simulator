@@ -1,4 +1,5 @@
 import sceneManager from './SceneManager.js';
+import missionManager from './MissionManager.js';
 import player from './Player.js';
 
 class Event {

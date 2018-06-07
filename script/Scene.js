@@ -80,6 +80,7 @@ var skillSce = new Scene();
 skillSce.setFixed = function() {
     skillSce.addFixed(viewElement.gameChoice());
     skillSce.addFixed(viewElement.sceneChoice());
+    skillSce.addFixed(viewElement.skillList());
 }
 
 skillSce.setView = function() {
