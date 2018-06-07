@@ -38,7 +38,7 @@ h1 {
 
 button {
     font-family: Microsoft JhengHei;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
     background-color: white;
     text-align: center;
     text-decoration: none;
@@ -46,7 +46,11 @@ button {
 }
 
 button:hover {
-    background-color: #9999ff;
+    background-color: pink;
+}
+
+button:active {
+    background-color: pink;
 }
 
 .game_choose {
@@ -161,7 +165,7 @@ button:hover {
     width: 0%;
     height: 60%;
     margin: 1%;
-    background-color: #000;
+    background-color: palevioletred;
 }
 
 

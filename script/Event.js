@@ -70,6 +70,10 @@ eat.execute = function() {
 };
 eat.afterProgress = function() {
     player.addHealth(20);
+    if (player.getData().health > 100) {
+        var diff = 100 - player.getData().health;
+        player.addHealth(diff);
+    }
     player.addMoney(-80);
 };
 //---
@@ -79,6 +83,10 @@ sleep.execute = function() {
 };
 sleep.afterProgress = function() {
     player.addHealth(20);
+    if (player.getData().health > 100) {
+        var diff = 100 - player.getData().health;
+        player.addHealth(diff);
+    }
     //disable others
 };
 //Scenes
