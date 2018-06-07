@@ -25,20 +25,19 @@ class ViewElement {
             return str;
         }
 
-        var button = function(txt, className, name, func) {
+        var button = function(txt, className, func) {
             var str = "<button type=\"button\"" +
                 "class=\"" + className + "\"" +
-                "name=\"" + name + "\"" +
                 "onclick=\"" + func + "\"" +
                 ">" + txt + "</button>";
             return str;
         }
 
-        var mission = function(title, txt, name, func) {
+        var mission = function(title, txt, id, func) {
             var str = "<div class=\"box\">" +
                 "<div class=\"missionText\">" + title + "</div>" +
-                progressBar("bar1") +
-                "</div>" + button(txt, "missionBtn", name, func) +
+                progressBar(id) +
+                "</div>" + button(txt, "missionBtn", func) +
                 "</div>";
             return str;
         }
@@ -52,12 +51,12 @@ class ViewElement {
         //Public Methods
         this.gameChoice = function() {
             var str = "<div class=\"game_choose\">" +
-                button("關於", "menuBtn", "about", "window.triggerEvent('about')") +
-                button("存檔", "menuBtn", "save", "window.triggerEvent('save')") +
-                button("讀檔", "menuBtn", "load", "window.triggerEvent('load')") +
-                button("關燈", "menuBtn", "light", "window.triggerEvent('light')") +
-                button("排行榜", "menuBtn", "rank", "window.triggerEvent('rank')") +
-                button("上傳題目", "menuBtn", "rank", "window.triggerEvent('upload')") +
+                button("關於", "menuBtn", "window.triggerEvent('about')") +
+                button("存檔", "menuBtn", "window.triggerEvent('save')") +
+                button("讀檔", "menuBtn", "window.triggerEvent('load')") +
+                button("關燈", "menuBtn", "window.triggerEvent('light')") +
+                button("排行榜", "menuBtn", "window.triggerEvent('rank')") +
+                button("上傳題目", "menuBtn", "window.triggerEvent('upload')") +
                 "</div>";
             return str;
         }
@@ -69,9 +68,9 @@ class ViewElement {
 
         this.sceneChoice = function() {
             var str = "<div class=\"scene_choose\">" +
-                button("日常", "sceneBtn", "life", "window.triggerEvent('life')") +
-                button("技能", "sceneBtn", "skill", "window.triggerEvent('skill')") +
-                button("商店", "sceneBtn", "shop", "window.triggerEvent('shop')") +
+                button("日常", "sceneBtn", "window.triggerEvent('life')") +
+                button("技能", "sceneBtn", "window.triggerEvent('skill')") +
+                button("商店", "sceneBtn", "window.triggerEvent('shop')") +
                 "</div>";
             return str;
         }
@@ -80,7 +79,10 @@ class ViewElement {
             var missions = player.getMissions();
             var str = "<div class=\"mission\">";
             for (var i in missions) {
-                str += mission(missions[i], "執行", missions[i], "window.triggerEvent('doMission')");
+                var name = missions[i].name;
+                var funcName = missions[i].funcName;
+                var func = "window.triggerEvent('" + funcName + "')";
+                str += mission(name, "執行", funcName, func);
                 str += "<div style=\"line-height:50%;\"><br></div>";
             }
             str += "</div>";

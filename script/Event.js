@@ -8,6 +8,22 @@ class Event {
         var name = name;
 
         //Public Methods
+        this.runProgress = function(name) {
+            var bar = document.getElementById(name);
+            var width = 1;
+            var id = setInterval(progress, 50);
+
+            function progress() {
+                if (width >= 100) {
+                    bar.style.width = '0%';
+                    clearInterval(id);
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                }
+            }
+        }
+
         this.getData = function() {
             var dataSet = { name: name };
             return dataSet;
@@ -21,21 +37,22 @@ class Event {
     }
 }
 
-var missionEvt = new Event("doMission");
-missionEvt.execute = function() {
-    var bar = document.getElementById("bar1");
-    var width = 1;
-    var id = setInterval(progress, 50);
+var study = new Event("study");
+study.execute = function() {
+    study.runProgress("study");
+}
 
-    function progress() {
-        if (width >= 100) {
-            bar.style.width = '0%';
-            clearInterval(id);
-        } else {
-            width++;
-            bar.style.width = width + '%';
-        }
-    }
+var work = new Event("work");
+work.execute = function() {
+    work.runProgress("work");
+}
+var eat = new Event("eat");
+eat.execute = function() {
+    eat.runProgress("eat");
+}
+var sleep = new Event("sleep");
+sleep.execute = function() {
+    sleep.runProgress("sleep");
 }
 
 var lifeEvt = new Event("life");
@@ -51,4 +68,4 @@ skillEvt.execute = function() {
 var shopEvt = new Event("shop");
 shopEvt.execute = function() {}
 
-export { lifeEvt, skillEvt, shopEvt, missionEvt };
+export { lifeEvt, skillEvt, shopEvt, study, work, eat, sleep };

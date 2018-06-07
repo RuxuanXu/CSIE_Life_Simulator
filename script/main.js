@@ -7,4 +7,4 @@ function mainLoop() {
     sceneManager.renderScene();
 }
 
-setInterval(mainLoop, 100);
+setInterval(mainLoop, 30);

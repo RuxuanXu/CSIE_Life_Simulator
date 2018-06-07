@@ -1,3 +1,5 @@
+import { study, work, eat, sleep } from './Mission.js';
+
 class MissionManager {
 
     constructor() {
@@ -9,7 +11,11 @@ class MissionManager {
 
         //Public Methods
         this.getMissions = function() {
-            return missions;
+            var list = [];
+            for (var i in missions) {
+                list.push(missions[i].getData());
+            }
+            return list;
         }
 
         this.addMission = function(mission) {
@@ -30,9 +36,9 @@ class MissionManager {
 
 const missionManager = new MissionManager();
 Object.freeze(missionManager);
-missionManager.addMission("上學");
-missionManager.addMission("工作");
-missionManager.addMission("吃飯");
-missionManager.addMission("睡覺");
+missionManager.addMission(study);
+missionManager.addMission(work);
+missionManager.addMission(eat);
+missionManager.addMission(sleep);
 
 export default missionManager;
