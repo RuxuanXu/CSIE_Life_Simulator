@@ -46,11 +46,14 @@ class ViewElement {
         var item = function(item) {
             var title = item.name;
             var price = item.price;
+            var btnTxt = "購買" + "<div class=\"describe\">$ " + price + "</div>";
+            var func = "window.triggerEvent('buy','" +
+                item.name + "'," + item.price +
+                ")";
             var str = "<div class=\"box\">" +
                 "<div class=\"itemText\">" + title +
-                "<br> $ " + price +
                 "</div>" +
-                button("購買", "shopBtn", "window.triggerEvent('buy')") +
+                button(btnTxt, "shopBtn", func) +
                 "</div>";
             return str;
         }
@@ -106,7 +109,8 @@ class ViewElement {
                 var name = missions[i].name;
                 var funcName = missions[i].funcName;
                 var func = "window.triggerEvent('" + funcName + "')";
-                str += mission(name, "執行", funcName, func);
+                var txt = missions[i].name + "<br><div class=\"describe\">" + missions[i].description + "</div>";
+                str += mission(txt, "執行", funcName, func);
                 str += "<div style=\"line-height:50%;\"><br></div>";
             }
             str += "</div>";

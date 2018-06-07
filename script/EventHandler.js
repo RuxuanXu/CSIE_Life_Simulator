@@ -1,4 +1,4 @@
-import { lifeEvt, skillEvt, shopEvt, study, work, eat } from './Event.js';
+import { lifeEvt, skillEvt, shopEvt, study, work, eat, trade } from './Event.js';
 
 class EventHandler {
 
@@ -14,9 +14,11 @@ class EventHandler {
 
         this.addFuncToWindow = function() {
 
-            window.triggerEvent = function(name) {
+            window.triggerEvent = function(name, para1, para2) {
                 for (var i in events) {
                     if (events[i].getData().name == name) {
+                        events[i].para1 = para1;
+                        events[i].para2 = para2;
                         events[i].execute();
                     }
                 }
@@ -41,5 +43,6 @@ eventHandler.addEvent(shopEvt);
 eventHandler.addEvent(study);
 eventHandler.addEvent(eat);
 eventHandler.addEvent(work);
+eventHandler.addEvent(trade);
 
 export default eventHandler;

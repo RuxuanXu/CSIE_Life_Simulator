@@ -22,6 +22,24 @@ class Shop {
             items.push(obj);
         }
 
+        this.takeItem = function(name) {
+            for (var i in items) {
+                if (items[i].getData().name == name) {
+                    return items[i];
+                }
+            }
+        }
+
+        this.removeItem = function(name) {
+            for (var i in items) {
+                var newList = [];
+                if (items[i].getData().name != name) {
+                    newList.push(items[i]);
+                }
+            }
+            items = newList;
+        }
+
         //Make sure there's only one object.
         if (!Shop.instance) {
             Shop.instance = this;

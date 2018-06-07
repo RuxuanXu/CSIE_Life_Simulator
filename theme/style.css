@@ -157,6 +157,11 @@ button:active {
     width: 60%;
     height: 100%;
     float: left;
+    transform: translateY(-0.2em);
+}
+
+.describe {
+    font-size: 0.6em;
 }
 
 .missionBtn,

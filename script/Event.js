@@ -108,4 +108,15 @@ shopEvt.execute = function() {
     if (sceneManager.getLocation() != 2) sceneManager.updateLocation(2);
 }
 
-export { lifeEvt, skillEvt, shopEvt, study, work, eat };
+//Shop
+var trade = new Event("buy");
+trade.execute = function() {
+    var self = this;
+    if (player.getData().money >= self.para2) {
+        player.addMoney(-self.para2);
+        player.buyShopItem(self.para1);
+        sceneManager.updateLocation(2);
+    }
+}
+
+export { lifeEvt, skillEvt, shopEvt, study, work, eat, trade };

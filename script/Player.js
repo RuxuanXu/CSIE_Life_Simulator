@@ -11,8 +11,11 @@ class Player {
         var money = 5000;
         var health = 100;
         var point = 0;
-        var shopItems = [];
         var items = [];
+
+        var addItem = function(obj) {
+            items.push(obj);
+        }
 
         //Public Methods
         this.getData = function() {
@@ -24,7 +27,11 @@ class Player {
         }
 
         this.getItems = function() {
-            return items;
+            var list = [];
+            for (var i in items) {
+                list.push(items[i].getData().name);
+            }
+            return list;
         }
 
         this.getSkills = function() {
@@ -33,6 +40,12 @@ class Player {
 
         this.getShopItems = function() {
             return shop.getItems();
+        }
+
+        this.buyShopItem = function(name) {
+            var obj = shop.takeItem(name);
+            addItem(obj);
+            shop.removeItem(name);
         }
 
         this.getSkill = function() {
@@ -52,10 +65,6 @@ class Player {
         this.addPoint = function(amount) {
             point += amount;
             webStorage.storeCache('point', point);
-        }
-
-        this.addItem = function(obj) {
-            items.push(obj);
         }
 
         //Make sure there's only one object.
@@ -78,5 +87,4 @@ class Player {
 
 const player = new Player();
 Object.freeze(player);
-player.addItem("書包");
 export default player;
