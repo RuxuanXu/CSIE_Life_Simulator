@@ -69,7 +69,7 @@ class ViewElement {
                 button("讀檔", "menuBtn", "window.triggerEvent('load')") +
                 button("關燈", "menuBtn", "window.triggerEvent('light')") +
                 button("排行榜", "menuBtn", "window.triggerEvent('rank')") +
-                button("上傳題目", "menuBtn", "window.triggerEvent('upload')") +
+                "<a href=\"./Database/index.html\">教師登入</a>" +
                 "</div>";
             return str;
         }

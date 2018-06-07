@@ -7,6 +7,22 @@ h1 {
     text-align: center;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: pink;
+}
+
+a:active {
+    background-color: pink;
+}
+
 @media screen and (max-aspect-ratio:3/4) {
     #game {
         width: 90%;
@@ -67,6 +83,7 @@ button:active {
 }
 
 .scene_choose {
+    font-size: 10px;
     position: absolute;
     width: 100%;
     height: 8%;
