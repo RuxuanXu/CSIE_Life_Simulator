@@ -107,7 +107,8 @@ button:hover {
     height: 30%;
 }
 
-.mission {
+.mission,
+.items {
     width: 96%;
     height: 48%;
     position: absolute;
@@ -130,7 +131,8 @@ button:hover {
     float: left;
 }
 
-.missionBtn {
+.missionBtn,
+.shopBtn {
     border-style: solid;
     border-radius: 20px;
     font-size: 18px;

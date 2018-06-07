@@ -1,4 +1,5 @@
 import player from './Player.js';
+import { shopSce } from './Scene.js';
 
 class ViewElement {
 
@@ -10,18 +11,19 @@ class ViewElement {
             var health = JSON.stringify(player.getData().health);
             var str = "<div class=\"player\">" +
                 "體力值: " + health +
-                "<br>知識點數: " + point +
+                "<br>知識點: " + point +
                 "<br>金錢: " + money +
                 "<br></div>";
             return str;
         }
 
         var itemBox = function() {
-            var str = "<div class=\"item\">" +
-                "書籍1" +
-                "<br> 書籍2" +
-                "<br> 麵包" +
-                "<br></div>";
+            var str = "<div class=\"item\">";
+            var items = player.getItems();
+            for (var i in items) {
+                str += items[i] + "<br>";
+            }
+            str += "</div>";
             return str;
         }
 
@@ -38,6 +40,14 @@ class ViewElement {
                 "<div class=\"missionText\">" + title + "</div>" +
                 progressBar(id) +
                 "</div>" + button(txt, "missionBtn", func) +
+                "</div>";
+            return str;
+        }
+
+        var item = function(title) {
+            var str = "<div class=\"box\">" +
+                "<div class=\"missionText\">" + title + "</div>" +
+                button("購買", "shopBtn", "window.triggerEvent('buy')") +
                 "</div>";
             return str;
         }
@@ -83,6 +93,17 @@ class ViewElement {
                 var funcName = missions[i].funcName;
                 var func = "window.triggerEvent('" + funcName + "')";
                 str += mission(name, "執行", funcName, func);
+                str += "<div style=\"line-height:50%;\"><br></div>";
+            }
+            str += "</div>";
+            return str;
+        }
+
+        this.itemList = function() {
+            var items = shopSce.getItems();
+            var str = "<div class=\"items\">";
+            for (var i in items) {
+                str += item(items[i]);
                 str += "<div style=\"line-height:50%;\"><br></div>";
             }
             str += "</div>";

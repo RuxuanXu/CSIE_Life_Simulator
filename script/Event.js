@@ -93,6 +93,8 @@ skillEvt.execute = function() {
 }
 
 var shopEvt = new Event("shop");
-shopEvt.execute = function() {}
+shopEvt.execute = function() {
+    if (sceneManager.getLocation() != 2) sceneManager.updateLocation(2);
+}
 
 export { lifeEvt, skillEvt, shopEvt, study, work, eat, sleep };

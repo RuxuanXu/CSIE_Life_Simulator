@@ -21,6 +21,10 @@ class Player {
             return missionManager.getMissions();
         }
 
+        this.getItems = function() {
+            return items;
+        }
+
         this.getSkill = function() {
             return skillManager.getSkill();
         }
@@ -38,6 +42,10 @@ class Player {
         this.addPoint = function(amount) {
             point += amount;
             webStorage.storeCache('point', point);
+        }
+
+        this.addItem = function(obj) {
+            items.push(obj);
         }
 
         //Make sure there's only one object.
@@ -60,5 +68,5 @@ class Player {
 
 const player = new Player();
 Object.freeze(player);
-
+player.addItem("書包");
 export default player;

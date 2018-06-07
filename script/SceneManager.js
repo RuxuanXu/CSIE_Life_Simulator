@@ -1,5 +1,5 @@
 import player from './Player.js';
-import { lifeSce, skillSce } from './Scene.js';
+import { lifeSce, skillSce, shopSce } from './Scene.js';
 
 class SceneManager {
 
@@ -46,11 +46,9 @@ class SceneManager {
             //Declare all scenes here
             scenes[0] = lifeSce;
             scenes[1] = skillSce;
-
+            scenes[2] = shopSce;
         }
-
         return SceneManager.instance;
-
     }
 
 }
