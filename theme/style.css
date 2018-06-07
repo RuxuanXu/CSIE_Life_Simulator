@@ -7,15 +7,6 @@ h1 {
     text-align: center;
 }
 
-h5 {
-    font-size: 20px;
-    text-align: center;
-}
-
-p {
-    font-size: 20px;
-}
-
 @media screen and (max-aspect-ratio:3/4) {
     #game {
         width: 90%;
@@ -45,18 +36,6 @@ p {
     margin: auto;
 }
 
-#progress {
-    width: 100%;
-    height: 25px;
-    background-color: #aaa;
-}
-
-#bar {
-    width: 60%;
-    height: 25px;
-    background-color: #000;
-}
-
 button {
     font-family: Microsoft JhengHei;
     transition-duration: 0.5s;
@@ -70,20 +49,20 @@ button:hover {
     background-color: #9999ff;
 }
 
-div.game_choose {
+.game_choose {
     position: absolute;
     height: 8%;
     top: 0;
     padding: 5px;
 }
 
-button.menuBtn {
+.menuBtn {
     font-size: 15px;
     border: none;
     z-index: -1;
 }
 
-div.scene_choose {
+.scene_choose {
     position: absolute;
     width: 100%;
     height: 8%;
@@ -91,7 +70,7 @@ div.scene_choose {
     padding: 5px;
 }
 
-button.sceneBtn {
+.sceneBtn {
     font-size: 18px;
     color: black;
     border: 2px solid #000;
@@ -121,12 +100,14 @@ button.sceneBtn {
     font-size: 18px;
 }
 
-div.box {
+.box {
+    position: relative;
     border-style: solid;
     border-radius: 20px;
+    height: 30%;
 }
 
-div.mission {
+.mission {
     width: 96%;
     height: 48%;
     position: absolute;
@@ -137,67 +118,46 @@ div.mission {
     overflow-y: scroll;
 }
 
-[class*="col-"] {
+.missionText {
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    height: 100%;
+    padding: 5px;
+    top: 5px;
+    margin: auto;
+    transform: translateY(10%);
     float: left;
-    padding: 15px;
-    border: 1px solid red;
-    font-size: 60px;
 }
 
-.col-1 {
-    width: 8.33%;
+.missionBtn {
+    border-style: solid;
+    border-radius: 20px;
+    font-size: 18px;
+    color: black;
+    border: 1px solid #000;
+    width: 30%;
+    height: 85%;
+    margin: 5px;
+    z-index: -1;
+    float: right;
 }
 
-.col-2 {
-    width: 16.66%;
+.progress {
+    position: absolute;
+    border-radius: 20px;
+    width: 66%;
+    height: 15%;
+    margin: 5px;
+    bottom: 5px;
+    background-color: #aaa;
 }
 
-.col-3 {
-    width: 25%;
-}
-
-.col-4 {
-    width: 33.33%;
-}
-
-.col-5 {
-    width: 41.66%;
-}
-
-.col-6 {
-    width: 50%;
-}
-
-.col-7 {
-    width: 58.33%;
-}
-
-.col-8 {
-    width: 66.66%;
-}
-
-.col-9 {
-    width: 75%;
-}
-
-.col-10 {
-    width: 83.33%;
-}
-
-.col-11 {
-    width: 91.66%;
-}
-
-.col-12 {
-    width: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-        font-size: 30px;
-    }
+.bar {
+    border-radius: 20px;
+    width: 36%;
+    height: 100%;
+    background-color: #000;
 }
 
 

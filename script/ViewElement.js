@@ -36,11 +36,10 @@ class ViewElement {
 
         var mission = function(title, txt, name, func) {
             var str = "<div class=\"box\">" +
-                "<h5>" + title + "</h5>" +
-                // button(txt, "missionBtn", name, func) +
-                // "<div id=\"progress\">" +
-                //"<div id=\"bar\"></div>" +
-                // "</div></div>";
+                "<div class=\"missionText\">" + title + "</div>" +
+                "<div class=\"progress\">" +
+                "<div class=\"bar\"></div>" +
+                "</div>" + button(txt, "missionBtn", name, func) +
                 "</div>";
             return str;
         }
@@ -50,7 +49,7 @@ class ViewElement {
             var str = "<div class=\"game_choose\">" +
                 button("SAVE", "menuBtn", "save", "window.triggerEvent('save')") +
                 button("LOAD", "menuBtn", "load", "window.triggerEvent('load')") +
-                button("2x", "menuBtn", "2x", "window.triggerEvent('2x')") +
+                button("關燈", "menuBtn", "light", "window.triggerEvent('light')") +
                 button("RANK", "menuBtn", "rank", "window.triggerEvent('rank')") +
                 "</div>";
             return str;
@@ -74,7 +73,8 @@ class ViewElement {
             var missions = player.getData().missions;
             var str = "<div class=\"mission\">";
             for (var i in missions) {
-                str += mission(missions[i], "成長", missions[i], "window.triggerEvent('upgrade')");
+                str += mission(missions[i], "執行", missions[i], "window.triggerEvent('do')");
+                str += "<div style=\"line-height:50%;\"><br></div>";
             }
             str += "</div>";
             return str;
