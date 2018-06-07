@@ -12,7 +12,7 @@ class ViewElement {
                 "體力值: " + health +
                 "<br>知識點: " + point +
                 "<br>金錢: " + money +
-                "<br></div>";
+                "</div>";
             return str;
         }
 
@@ -80,7 +80,7 @@ class ViewElement {
                 button("讀檔", "menuBtn", "window.triggerEvent('load')") +
                 button("關燈", "menuBtn", "window.triggerEvent('light')") +
                 button("排行榜", "menuBtn", "window.triggerEvent('rank')") +
-                "<a href=\"./Database/index.html\">教師登入</a>" +
+                "<a class=\"menuBtn\" href=\"./Database/index.html\">教師登入</a>" +
                 "</div>";
             return str;
         }

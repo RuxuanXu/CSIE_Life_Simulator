@@ -1,6 +1,8 @@
 body {
     background-color: #fff;
     font-family: Microsoft JhengHei;
+    font-size: 75%;
+    overflow: hidden;
 }
 
 h1 {
@@ -23,27 +25,31 @@ a:active {
     background-color: pink;
 }
 
-@media screen and (max-aspect-ratio:3/4) {
-    #game {
-        width: 90%;
+@media screen and (max-height: 320px) {
+    body {
+        font-size: 50%;
     }
 }
 
-@media screen and (min-aspect-ratio:3/2) {
-    #game {
-        width: 30%;
+@media screen and (min-height: 550px) {
+    body {
+        font-size: 120%;
     }
 }
 
-@media screen and (min-aspect-ratio:3/4) and (max-aspect-ratio:3/2) {
-    #game {
-        width: 60%;
+@media screen and (min-height: 1000px) {
+    body {
+        font-size: 180%;
+    }
+}
+
+@media screen and (min-height: 1200px) {
+    body {
+        font-size: 280%;
     }
 }
 
 #game {
-    height: 90%;
-    border-style: solid;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -77,13 +83,13 @@ button:active {
 }
 
 .menuBtn {
-    font-size: 15px;
+    font-size: 0.9em;
     border: none;
     z-index: -1;
 }
 
 .scene_choose {
-    font-size: 10px;
+    font-size: 1em;
     position: absolute;
     width: 100%;
     height: 8%;
@@ -92,7 +98,7 @@ button:active {
 }
 
 .sceneBtn {
-    font-size: 18px;
+    font-size: 1em;
     color: black;
     border: 2px solid #000;
     width: 32%;
@@ -103,10 +109,11 @@ button:active {
 .player {
     position: absolute;
     width: 40%;
-    top: 25%;
+    height: 30%;
+    top: 6%;
     left: 5%;
     padding: 5px;
-    font-size: 18px;
+    font-size: 1em;
 }
 
 .item {
@@ -118,40 +125,36 @@ button:active {
     top: 6%;
     left: 50%;
     padding: 5px;
-    font-size: 18px;
+    font-size: 1em;
 }
 
 .box {
     position: relative;
     border-style: solid;
-    border-radius: 20px;
-    height: 30%;
+    border-radius: 1.4em;
+    padding: 0.8em;
+    height: 18%;
 }
 
 .mission,
 .items,
 .skills {
-    width: 96%;
+    width: 98%;
     height: 48%;
     position: absolute;
     top: 50%;
     bottom: 0;
     margin: auto;
-    padding: 5px;
     overflow-y: scroll;
 }
 
 .missionText,
 .skillText,
 .itemText {
-    font-size: 20px;
+    font-size: 1.2em;
     text-align: center;
     width: 60%;
     height: 100%;
-    padding: 5px;
-    top: 5px;
-    margin: auto;
-    transform: translateY(10%);
     float: left;
 }
 
@@ -159,13 +162,12 @@ button:active {
 .shopBtn,
 .skillBtn {
     border-style: solid;
-    border-radius: 20px;
-    font-size: 18px;
+    border-radius: 1.4em;
+    font-size: 1em;
     color: black;
     border: 1px solid #000;
-    width: 30%;
-    height: 80%;
-    margin: 6px;
+    width: 26%;
+    height: 100%;
     z-index: -1;
     float: right;
 }
@@ -174,15 +176,14 @@ button:active {
     border-style: solid;
     border: 1px solid #000;
     position: absolute;
-    border-radius: 20px;
-    width: 65%;
+    border-radius: 1.4em;
+    width: 62%;
     height: 15%;
-    margin: 5px;
-    bottom: 5px;
+    bottom: 0.4em;
 }
 
 .bar {
-    border-radius: 20px;
+    border-radius: 1.4em;
     width: 0%;
     height: 60%;
     margin: 1%;
