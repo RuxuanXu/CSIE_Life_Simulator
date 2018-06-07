@@ -6,11 +6,12 @@ class Mission {
         var name = name;
         var funcName = funcName;
         var progress = 0;
+        var speed = 1;
         var isActive = 0;
 
         //Public Methods
         this.getData = function() {
-            var dataSet = { name: name, funcName: funcName, progress: progress, isActive: isActive };
+            var dataSet = { name: name, funcName: funcName, progress: progress, speed: speed, isActive: isActive };
             return dataSet;
         }
     }

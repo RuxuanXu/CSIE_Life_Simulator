@@ -35,6 +35,11 @@ class Player {
             webStorage.storeCache('health', health);
         }
 
+        this.addPoint = function(amount) {
+            point += amount;
+            webStorage.storeCache('point', point);
+        }
+
         //Make sure there's only one object.
         if (!Player.instance) {
 
@@ -42,8 +47,10 @@ class Player {
             //load data from cache
             var m = parseInt(webStorage.getCache('money'));
             var h = parseInt(webStorage.getCache('health'));
+            var p = parseInt(webStorage.getCache('point'));
             if (m) money = m;
             if (h) health = h;
+            if (p) point = p;
 
         }
         return Player.instance;

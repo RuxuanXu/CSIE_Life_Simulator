@@ -9,9 +9,9 @@ class ViewElement {
             var point = JSON.stringify(player.getData().point);
             var health = JSON.stringify(player.getData().health);
             var str = "<div class=\"player\">" +
-                "HP: " + health +
-                "<br>SP: " + point +
-                "<br>Money: " + money +
+                "體力值: " + health +
+                "<br>知識點數: " + point +
+                "<br>金錢: " + money +
                 "<br></div>";
             return str;
         }
@@ -68,7 +68,7 @@ class ViewElement {
 
         this.sceneChoice = function() {
             var str = "<div class=\"scene_choose\">" +
-                button("日常", "sceneBtn", "window.triggerEvent('life')") +
+                button("任務", "sceneBtn", "window.triggerEvent('life')") +
                 button("技能", "sceneBtn", "window.triggerEvent('skill')") +
                 button("商店", "sceneBtn", "window.triggerEvent('shop')") +
                 "</div>";
