@@ -21,6 +21,23 @@ class Event {
     }
 }
 
+var missionEvt = new Event("doMission");
+missionEvt.execute = function() {
+    var bar = document.getElementById("bar1");
+    var width = 1;
+    var id = setInterval(progress, 50);
+
+    function progress() {
+        if (width >= 100) {
+            bar.style.width = '0%';
+            clearInterval(id);
+        } else {
+            width++;
+            bar.style.width = width + '%';
+        }
+    }
+}
+
 var lifeEvt = new Event("life");
 lifeEvt.execute = function() {
     if (sceneManager.getLocation() != 0) sceneManager.updateLocation(0);
@@ -34,4 +51,4 @@ skillEvt.execute = function() {
 var shopEvt = new Event("shop");
 shopEvt.execute = function() {}
 
-export { lifeEvt, skillEvt, shopEvt };
+export { lifeEvt, skillEvt, shopEvt, missionEvt };

@@ -37,10 +37,15 @@ class ViewElement {
         var mission = function(title, txt, name, func) {
             var str = "<div class=\"box\">" +
                 "<div class=\"missionText\">" + title + "</div>" +
-                "<div class=\"progress\">" +
-                "<div class=\"bar\"></div>" +
+                progressBar("bar1") +
                 "</div>" + button(txt, "missionBtn", name, func) +
                 "</div>";
+            return str;
+        }
+
+        var progressBar = function(id) {
+            var str = "<div class=\"progress\">" +
+                "<div class=\"bar\" id=\"" + id + "\"></div>";
             return str;
         }
 
@@ -75,7 +80,7 @@ class ViewElement {
             var missions = player.getData().missions;
             var str = "<div class=\"mission\">";
             for (var i in missions) {
-                str += mission(missions[i], "執行", missions[i], "window.triggerEvent('do')");
+                str += mission(missions[i], "執行", missions[i], "window.triggerEvent('doMission')");
                 str += "<div style=\"line-height:50%;\"><br></div>";
             }
             str += "</div>";
