@@ -23,19 +23,15 @@ class Event {
 
 var lifeEvt = new Event("life");
 lifeEvt.execute = function() {
-    console.log("life");
     if (sceneManager.getLocation() != 0) sceneManager.updateLocation(0);
 }
 
 var skillEvt = new Event("skill");
 skillEvt.execute = function() {
-    console.log("skill");
     if (sceneManager.getLocation() != 1) sceneManager.updateLocation(1);
 }
 
 var shopEvt = new Event("shop");
-shopEvt.execute = function() {
-    console.log("shop");
-}
+shopEvt.execute = function() {}
 
 export { lifeEvt, skillEvt, shopEvt };

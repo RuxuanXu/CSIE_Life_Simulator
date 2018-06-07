@@ -90,6 +90,7 @@ button:hover {
 
 .item {
     border-style: solid;
+    border: 1px solid #000;
     position: absolute;
     width: 40%;
     height: 30%;
@@ -136,26 +137,28 @@ button:hover {
     color: black;
     border: 1px solid #000;
     width: 30%;
-    height: 85%;
-    margin: 5px;
+    height: 80%;
+    margin: 6px;
     z-index: -1;
     float: right;
 }
 
 .progress {
+    border-style: solid;
+    border: 1px solid #000;
     position: absolute;
     border-radius: 20px;
-    width: 66%;
+    width: 65%;
     height: 15%;
     margin: 5px;
     bottom: 5px;
-    background-color: #aaa;
 }
 
 .bar {
     border-radius: 20px;
-    width: 36%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
+    margin: 1%;
     background-color: #000;
 }
 
