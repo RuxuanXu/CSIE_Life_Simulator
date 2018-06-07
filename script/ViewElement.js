@@ -47,10 +47,12 @@ class ViewElement {
         //Public Methods
         this.gameChoice = function() {
             var str = "<div class=\"game_choose\">" +
-                button("SAVE", "menuBtn", "save", "window.triggerEvent('save')") +
-                button("LOAD", "menuBtn", "load", "window.triggerEvent('load')") +
+                button("關於", "menuBtn", "about", "window.triggerEvent('about')") +
+                button("存檔", "menuBtn", "save", "window.triggerEvent('save')") +
+                button("讀檔", "menuBtn", "load", "window.triggerEvent('load')") +
                 button("關燈", "menuBtn", "light", "window.triggerEvent('light')") +
-                button("RANK", "menuBtn", "rank", "window.triggerEvent('rank')") +
+                button("排行榜", "menuBtn", "rank", "window.triggerEvent('rank')") +
+                button("上傳題目", "menuBtn", "rank", "window.triggerEvent('upload')") +
                 "</div>";
             return str;
         }
