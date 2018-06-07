@@ -82,7 +82,6 @@ button:hover {
 .player {
     position: absolute;
     width: 40%;
-    height: 30%;
     top: 25%;
     left: 5%;
     padding: 5px;
