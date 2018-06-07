@@ -77,7 +77,7 @@ class ViewElement {
         }
 
         this.missionList = function() {
-            var missions = player.getData().missions;
+            var missions = player.getMissions();
             var str = "<div class=\"mission\">";
             for (var i in missions) {
                 str += mission(missions[i], "執行", missions[i], "window.triggerEvent('doMission')");
@@ -86,8 +86,6 @@ class ViewElement {
             str += "</div>";
             return str;
         }
-
-
     }
 }
 

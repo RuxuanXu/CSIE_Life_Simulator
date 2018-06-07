@@ -1,4 +1,5 @@
 import skillManager from './SkillManager.js';
+import missionManager from './MissionManager.js';
 import webStorage from './WebStorage.js';
 
 class Player {
@@ -9,13 +10,15 @@ class Player {
         var money = 5000;
         var health = 100;
         var point = 0;
-        var missions = [];
         var items = [];
 
         //Public Methods
         this.getData = function() {
-            var dataSet = { money: money, point: point, health: health, missions: missions };
+            var dataSet = { money: money, point: point, health: health };
             return dataSet;
+        }
+        this.getMissions = function() {
+            return missionManager.getMissions();
         }
 
         this.getSkill = function() {
@@ -32,15 +35,10 @@ class Player {
             webStorage.storeCache('health', health);
         }
 
-        this.addMission = function(mission) {
-            missions.push(mission);
-        }
-
         //Make sure there's only one object.
         if (!Player.instance) {
 
             Player.instance = this;
-
             //load data from cache
             var m = parseInt(webStorage.getCache('money'));
             var h = parseInt(webStorage.getCache('health'));
@@ -55,9 +53,5 @@ class Player {
 
 const player = new Player();
 Object.freeze(player);
-player.addMission("上學");
-player.addMission("工作");
-player.addMission("吃飯");
-player.addMission("睡覺");
 
 export default player;
