@@ -2,6 +2,7 @@ import skillManager from './SkillManager.js';
 import missionManager from './MissionManager.js';
 import webStorage from './WebStorage.js';
 import shop from './Shop.js';
+import Item from './Item.js';
 
 class Player {
 
@@ -46,6 +47,12 @@ class Player {
             var obj = shop.takeItem(name);
             addItem(obj);
             shop.removeItem(name);
+            //Save to webstorage
+            var sav = [];
+            for (var i in items) {
+                sav.push(items[i].getData());
+            }
+            webStorage.storeCache('item', JSON.stringify(sav));
         }
 
         this.getSkill = function() {
@@ -71,13 +78,25 @@ class Player {
         if (!Player.instance) {
 
             Player.instance = this;
+
             //load data from cache
             var m = parseInt(webStorage.getCache('money'));
             var h = parseInt(webStorage.getCache('health'));
             var p = parseInt(webStorage.getCache('point'));
+            var it = JSON.parse(JSON.parse(webStorage.getCache('item')));
             if (m) money = m;
             if (h) health = h;
             if (p) point = p;
+            if (it) {
+                for (var i in it) {
+                    var itName = it[i].name;
+                    var itPrice = it[i].price;
+                    if (itName) {
+                        var obj = new Item(itName, itPrice);
+                        addItem(obj);
+                    }
+                }
+            }
 
         }
         return Player.instance;

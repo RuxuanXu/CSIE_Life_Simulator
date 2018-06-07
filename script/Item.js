@@ -1,4 +1,4 @@
-class Item {
+export default class Item {
 
     constructor(name, price) {
 
@@ -13,8 +13,8 @@ class Item {
         }
     }
 }
-
+var test = new Item('測試用品', 20000);
 var book = new Item('微積分教科書', 2000);
 var food = new Item('營養午餐', 100);
 
-export { book, food };
+export { test, book, food };

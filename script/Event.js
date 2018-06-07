@@ -29,7 +29,7 @@ class Event {
         this.runProgress = function(name) {
             var bar = document.getElementById(name);
             var width = 1;
-            var id = setInterval(progress, 50);
+            var id = setInterval(progress, 5);
             var self = this;
 
             function progress() {
