@@ -1,4 +1,4 @@
-import { study, work, eat, sleep } from './Mission.js';
+import { study, work, eat } from './Mission.js';
 
 class MissionManager {
 
@@ -22,6 +22,34 @@ class MissionManager {
             missions.push(mission);
         }
 
+        this.isActive = function(name) {
+            for (var i in missions) {
+                if (missions[i].getData().funcName == name)
+                    return missions[i].getData().isActive;
+            }
+        }
+
+        this.setActive = function(name, val) {
+            for (var i in missions) {
+                if (missions[i].getData().funcName == name)
+                    missions[i].setActive(val);
+            }
+        }
+
+        this.getProgress = function(name) {
+            for (var i in missions) {
+                if (missions[i].getData().funcName == name)
+                    return missions[i].getData().progress;
+            }
+        }
+
+        this.setProgress = function(name, val) {
+            for (var i in missions) {
+                if (missions[i].getData().funcName == name)
+                    missions[i].setProgress(val);
+            }
+        }
+
         //Make sure there's only one object.
         if (!MissionManager.instance) {
             MissionManager.instance = this;
@@ -39,6 +67,5 @@ Object.freeze(missionManager);
 missionManager.addMission(study);
 missionManager.addMission(work);
 missionManager.addMission(eat);
-missionManager.addMission(sleep);
 
 export default missionManager;

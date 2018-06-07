@@ -1,4 +1,4 @@
-import { lifeEvt, skillEvt, shopEvt, study, work, eat, sleep } from './Event.js';
+import { lifeEvt, skillEvt, shopEvt, study, work, eat } from './Event.js';
 
 class EventHandler {
 
@@ -41,6 +41,5 @@ eventHandler.addEvent(shopEvt);
 eventHandler.addEvent(study);
 eventHandler.addEvent(eat);
 eventHandler.addEvent(work);
-eventHandler.addEvent(sleep);
 
 export default eventHandler;

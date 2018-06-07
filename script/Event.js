@@ -34,12 +34,14 @@ class Event {
 
             function progress() {
                 if (width >= 100) {
-                    bar.style.width = '0%';
+                    bar = document.getElementById(name);
+                    if (bar) bar.style.width = '0%';
                     clearInterval(id);
                     self.afterProgress();
                 } else {
+                    bar = document.getElementById(name);
                     width++;
-                    bar.style.width = width + '%';
+                    if (bar) bar.style.width = width + '%';
                 }
             }
         }
@@ -49,27 +51,39 @@ class Event {
 //Missions
 var study = new Event("study");
 study.execute = function() {
-    study.runProgress("study");
+    if (!missionManager.isActive("study")) {
+        missionManager.setActive("study", 1);
+        study.runProgress("study");
+    }
 };
 study.afterProgress = function() {
+    missionManager.setActive("study", 0);
     player.addHealth(-5);
     player.addPoint(10);
 };
 //---
 var work = new Event("work");
 work.execute = function() {
-    work.runProgress("work");
+    if (!missionManager.isActive("work")) {
+        missionManager.setActive("work", 1);
+        work.runProgress("work");
+    }
 };
 work.afterProgress = function() {
+    missionManager.setActive("work", 0);
     player.addHealth(-10);
     player.addMoney(100);
 };
 //---
 var eat = new Event("eat");
 eat.execute = function() {
-    eat.runProgress("eat");
+    if (!missionManager.isActive("eat")) {
+        missionManager.setActive("eat", 1);
+        eat.runProgress("eat");
+    }
 };
 eat.afterProgress = function() {
+    missionManager.setActive("eat", 0);
     player.addHealth(20);
     if (player.getData().health > 100) {
         var diff = 100 - player.getData().health;
@@ -77,19 +91,7 @@ eat.afterProgress = function() {
     }
     player.addMoney(-80);
 };
-//---
-var sleep = new Event("sleep");
-sleep.execute = function() {
-    sleep.runProgress("sleep");
-};
-sleep.afterProgress = function() {
-    player.addHealth(20);
-    if (player.getData().health > 100) {
-        var diff = 100 - player.getData().health;
-        player.addHealth(diff);
-    }
-    //disable others
-};
+
 //Scenes
 var lifeEvt = new Event("life");
 lifeEvt.execute = function() {
@@ -106,4 +108,4 @@ shopEvt.execute = function() {
     if (sceneManager.getLocation() != 2) sceneManager.updateLocation(2);
 }
 
-export { lifeEvt, skillEvt, shopEvt, study, work, eat, sleep };
+export { lifeEvt, skillEvt, shopEvt, study, work, eat };
