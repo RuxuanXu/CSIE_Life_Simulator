@@ -45,9 +45,9 @@ class ViewElement {
                 ")";
             var describe = "<div class=\"describe\">";
             var para = mission.description;
-            if (mission.description[0]) describe += "//體力" + getSign(para[0]) + "  ";
-            if (mission.description[1]) describe += "//知識" + getSign(para[1]) + "  ";
-            if (mission.description[2]) describe += "//金錢" + getSign(para[2]);
+            if (mission.description[0]) describe += "體力" + getSign(para[0]) + "  ";
+            if (mission.description[1]) describe += "知識" + getSign(para[1]) + "  ";
+            if (mission.description[2]) describe += "金錢" + getSign(para[2]);
             describe += "</div>";
 
             var str = "<div class=\"box\">" +
@@ -78,7 +78,9 @@ class ViewElement {
             var level = obj.level;
             var str = "<div class=\"box\">" +
                 "<div class=\"skillText\">" + title +
-                "<br> Level " + level +
+                "<div class=\"describe\">Level " + level +
+                "<br>" + obj.effect +
+                "</div>" +
                 "</div>" +
                 button("升級", "skillBtn", "window.triggerEvent('upgrade')") +
                 "</div>";

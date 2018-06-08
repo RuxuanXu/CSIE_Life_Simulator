@@ -29,7 +29,7 @@ class Event {
         this.runProgress = function(name, para) {
             var bar = document.getElementById(name);
             var width = 1;
-            var id = setInterval(progress, 50);
+            var id = setInterval(progress, 5);
             var self = this;
 
             function progress() {
@@ -60,7 +60,14 @@ doMission.execute = function() {
     var self = this;
     var name = self.para1;
     var para = self.para2;
-    if (!missionManager.isActive(name)) {
+    var hp = parseInt(para[0]);
+    var point = parseInt(para[1]);
+    var money = parseInt(para[2]);
+
+    if (!missionManager.isActive(name) &&
+        player.getData().health + hp >= 0 &&
+        player.getData().point + point >= 0 &&
+        player.getData().money + money >= 0) {
         missionManager.setActive(name, 1);
         doMission.runProgress(name, para);
     }
@@ -68,9 +75,19 @@ doMission.execute = function() {
 
 doMission.afterProgress = function(name, para) {
     missionManager.setActive(name, 0);
-    player.addHealth(parseInt(para[0]));
-    player.addPoint(parseInt(para[1]));
-    player.addMoney(parseInt(para[2]));
+    var hp = parseInt(para[0]);
+    var point = parseInt(para[1]);
+    var money = parseInt(para[2]);
+
+    player.addHealth(hp);
+    if (player.getData().health > 100) {
+        player.addHealth(100 - player.getData().health);
+    }
+    if (player.getData().health < 0) {
+        player.addHealth(-player.getData().health);
+    }
+    player.addPoint(point);
+    player.addMoney(money);
 }
 
 //Scenes
