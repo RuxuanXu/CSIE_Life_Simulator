@@ -1,16 +1,19 @@
-class Skill {
+export default class Skill {
 
     constructor(name) {
 
         //Private Members
         var name = name;
         var level = 0;
+        var effect = [];
+        var cost = 0;
 
         //Public Methods
         this.getData = function() {
             var dataSet = { name: name, level: level };
             return dataSet;
         }
+        this
     }
 }
 

@@ -26,10 +26,10 @@ class Event {
         }
 
         //For progress bar event
-        this.runProgress = function(name) {
+        this.runProgress = function(name, para) {
             var bar = document.getElementById(name);
             var width = 1;
-            var id = setInterval(progress, 5);
+            var id = setInterval(progress, 50);
             var self = this;
 
             function progress() {
@@ -37,7 +37,7 @@ class Event {
                     bar = document.getElementById(name);
                     if (bar) bar.style.width = '0%';
                     clearInterval(id);
-                    self.afterProgress();
+                    self.afterProgress(name, para);
                 } else {
                     bar = document.getElementById(name);
                     width++;
@@ -45,52 +45,33 @@ class Event {
                 }
             }
         }
+
+        this.updatePlayer = function(a, b, c) {
+            player.addHealth(a);
+            player.addPoint(b);
+            player.addMoney(c);
+        }
     }
 }
 
 //Missions
-var study = new Event("study");
-study.execute = function() {
-    if (!missionManager.isActive("study") && player.getData().health >= 5) {
-        missionManager.setActive("study", 1);
-        study.runProgress("study");
+var doMission = new Event("doMission");
+doMission.execute = function() {
+    var self = this;
+    var name = self.para1;
+    var para = self.para2;
+    if (!missionManager.isActive(name)) {
+        missionManager.setActive(name, 1);
+        doMission.runProgress(name, para);
     }
 };
-study.afterProgress = function() {
-    missionManager.setActive("study", 0);
-    player.addHealth(-5);
-    player.addPoint(10);
-};
-//---
-var work = new Event("work");
-work.execute = function() {
-    if (!missionManager.isActive("work") && player.getData().health >= 10) {
-        missionManager.setActive("work", 1);
-        work.runProgress("work");
-    }
-};
-work.afterProgress = function() {
-    missionManager.setActive("work", 0);
-    player.addHealth(-10);
-    player.addMoney(100);
-};
-//---
-var eat = new Event("eat");
-eat.execute = function() {
-    if (!missionManager.isActive("eat") && player.getData().money >= 80) {
-        missionManager.setActive("eat", 1);
-        eat.runProgress("eat");
-    }
-};
-eat.afterProgress = function() {
-    missionManager.setActive("eat", 0);
-    player.addHealth(20);
-    if (player.getData().health > 100) {
-        var diff = 100 - player.getData().health;
-        player.addHealth(diff);
-    }
-    player.addMoney(-80);
-};
+
+doMission.afterProgress = function(name, para) {
+    missionManager.setActive(name, 0);
+    player.addHealth(parseInt(para[0]));
+    player.addPoint(parseInt(para[1]));
+    player.addMoney(parseInt(para[2]));
+}
 
 //Scenes
 var lifeEvt = new Event("life");
@@ -131,4 +112,4 @@ changeStyle.execute = function() {
     sceneManager.updateLocation(sceneManager.getLocation());
 }
 
-export { lifeEvt, skillEvt, shopEvt, study, work, eat, trade, changeStyle };
+export { lifeEvt, skillEvt, shopEvt, doMission, trade, changeStyle };

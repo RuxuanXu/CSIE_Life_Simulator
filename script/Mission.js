@@ -1,13 +1,13 @@
 class Mission {
 
-    constructor(name, funcName, description) {
+    constructor(name, funcName, a, b, c) {
 
         //Private Members
         var name = name;
         var funcName = funcName;
         var speed = 1;
         var isActive = 0;
-        var description = description;
+        var description = [a, b, c];
 
         //Public Methods
         this.getData = function() {
@@ -21,8 +21,8 @@ class Mission {
     }
 }
 
-var study = new Mission('學習', "study", "體力-5 / 知識+10");
-var work = new Mission('工作', "work", "體力-10 / 金錢+100");
-var eat = new Mission('吃飯', "eat", "體力+20 / 金錢-80");
+var study = new Mission('學習', "study", -5, 10, 0);
+var work = new Mission('工作', "work", -10, 0, 100);
+var eat = new Mission('吃飯', "eat", 20, 0, -80);
 
 export { study, work, eat };

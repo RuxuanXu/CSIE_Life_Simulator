@@ -13,6 +13,7 @@ class Player {
         var health = 100;
         var point = 0;
         var items = [];
+        var skills = [];
 
         var addItem = function(obj) {
             items.push(obj);
