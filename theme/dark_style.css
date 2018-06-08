@@ -1,0 +1,232 @@
+body {
+    background-color: #222;
+    font-family: Microsoft JhengHei;
+    font-size: 75%;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    color: #7777FF;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: pink;
+    color: white;
+}
+
+a:active {
+    background-color: pink;
+    color: white;
+}
+
+@media screen and (max-height: 320px) {
+    body {
+        font-size: 50%;
+    }
+}
+
+@media screen and (min-height: 550px) {
+    body {
+        font-size: 120%;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    body {
+        font-size: 180%;
+    }
+}
+
+@media screen and (min-height: 1200px) {
+    body {
+        font-size: 280%;
+    }
+}
+
+#game {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+button {
+    font-family: Microsoft JhengHei;
+    transition-duration: 0.2s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: black;
+    color: grey;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+button:active {
+    background-color: pink;
+}
+
+.game_choose {
+    position: absolute;
+    height: 8%;
+    top: 0;
+    padding: 5px;
+}
+
+.menuBtn {
+    font-size: 0.9em;
+    border: none;
+    z-index: -1;
+}
+
+.scene_choose {
+    font-size: 1em;
+    position: absolute;
+    width: 100%;
+    height: 8%;
+    top: 40%;
+    padding: 5px;
+}
+
+.sceneBtn {
+    font-size: 1em;
+    color: white;
+    background-color: black;
+    border: 1px solid #000;
+    width: 32%;
+    height: 100%;
+    z-index: -1;
+}
+
+.player {
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    top: 6%;
+    left: 5%;
+    padding: 5px;
+    font-size: 1em;
+    color: white;
+    background-color: #222;
+}
+
+.item {
+    border-style: solid;
+    border: 1px solid #000;
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    top: 6%;
+    left: 50%;
+    padding: 5px;
+    font-size: 1em;
+    color: white;
+}
+
+.box {
+    position: relative;
+    border-style: solid;
+    border-radius: 1.4em;
+    border-color: white;
+    border: 1px solid #000;
+    padding: 0.8em;
+    height: 18%;
+}
+
+.mission,
+.items,
+.skills {
+    width: 98%;
+    height: 48%;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    margin: auto;
+    overflow-y: scroll;
+    color: white;
+    background-color: #111;
+}
+
+.missionText,
+.skillText,
+.itemText {
+    font-size: 1.2em;
+    text-align: center;
+    width: 60%;
+    height: 100%;
+    float: left;
+    transform: translateY(-0.2em);
+    color: white;
+}
+
+.describe {
+    font-size: 0.6em;
+}
+
+.missionBtn,
+.shopBtn,
+.skillBtn {
+    border-style: solid;
+    border-radius: 1.4em;
+    font-size: 1em;
+    color: white;
+    background-color: grey;
+    border: 1px solid #000;
+    width: 26%;
+    height: 100%;
+    z-index: -1;
+    float: right;
+}
+
+.progress {
+    border-style: solid;
+    border: 1px solid #000;
+    position: absolute;
+    border-radius: 1.4em;
+    width: 62%;
+    height: 15%;
+    bottom: 0.4em;
+    color: white;
+    background-color: #222;
+}
+
+.bar {
+    border-radius: 1.4em;
+    width: 0%;
+    height: 60%;
+    margin: 1%;
+    background-color: palevioletred;
+}
+
+
+/*Scroll bar style: Work for Chrome*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

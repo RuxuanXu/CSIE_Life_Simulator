@@ -119,4 +119,16 @@ trade.execute = function() {
     }
 }
 
-export { lifeEvt, skillEvt, shopEvt, study, work, eat, trade };
+//Menu Buttons
+var changeStyle = new Event("light");
+changeStyle.execute = function() {
+    var style = sceneManager.getStyle();
+    if (style == 0) {
+        sceneManager.setStyle(1);
+    } else {
+        sceneManager.setStyle(0);
+    }
+    sceneManager.updateLocation(sceneManager.getLocation());
+}
+
+export { lifeEvt, skillEvt, shopEvt, study, work, eat, trade, changeStyle };
