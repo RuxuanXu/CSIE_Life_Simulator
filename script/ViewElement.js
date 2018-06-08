@@ -34,14 +34,24 @@ class ViewElement {
                 ">" + txt + "</button>";
             return str;
         }
+        var getSign = function(num) {
+            if (num >= 0) return "+" + JSON.stringify(num);
+            return JSON.stringify(num);
+        }
 
         var mission = function(mission) {
             var func = "window.triggerEvent('doMission','" +
                 mission.funcName + "'," + JSON.stringify(mission.description) +
                 ")";
+            var describe = "<div class=\"describe\">";
+            var para = mission.description;
+            if (mission.description[0]) describe += "//體力" + getSign(para[0]) + "  ";
+            if (mission.description[1]) describe += "//知識" + getSign(para[1]) + "  ";
+            if (mission.description[2]) describe += "//金錢" + getSign(para[2]);
+            describe += "</div>";
 
             var str = "<div class=\"box\">" +
-                "<div class=\"missionText\">" + mission.name + "</div>" +
+                "<div class=\"missionText\">" + mission.name + describe + "</div>" +
                 progressBar(mission.funcName) +
                 "</div>" + button("執行", "missionBtn", func) +
                 "</div>";
