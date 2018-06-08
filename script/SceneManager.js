@@ -9,7 +9,6 @@ class SceneManager {
         //Private Members
         var scenes = [];
         var location = 0;
-        var currentTime = new Date();
         var changeScene = 0;
         var style = 0;
 
@@ -31,10 +30,6 @@ class SceneManager {
 
         this.getLocation = function() {
             return location;
-        }
-
-        this.getCurrentTime = function() {
-            return currentTime;
         }
 
         this.renderScene = function() {
@@ -75,4 +70,6 @@ class SceneManager {
 
 const sceneManager = new SceneManager();
 Object.freeze(sceneManager);
+sceneManager.updateLocation(sceneManager.getLocation());
+
 export default sceneManager;

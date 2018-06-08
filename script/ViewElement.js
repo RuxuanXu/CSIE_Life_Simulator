@@ -1,4 +1,5 @@
 import player from './Player.js';
+import sceneManager from './SceneManager.js';
 
 class ViewElement {
 
@@ -80,9 +81,13 @@ class ViewElement {
         this.gameChoice = function() {
             var str = "<div class=\"game_choose\">" +
                 button("存檔", "menuBtn", "window.triggerEvent('save')") +
-                button("讀檔", "menuBtn", "window.triggerEvent('load')") +
-                button("關燈", "menuBtn", "window.triggerEvent('light')") +
-                button("排行榜", "menuBtn", "window.triggerEvent('rank')") +
+                button("讀檔", "menuBtn", "window.triggerEvent('load')");
+            if (!sceneManager.getStyle()) {
+                str += button("關燈", "menuBtn", "window.triggerEvent('light')");
+            } else {
+                str += button("開燈", "menuBtn", "window.triggerEvent('light')");
+            }
+            str += button("排行榜", "menuBtn", "window.triggerEvent('rank')") +
                 "<a class=\"menuBtn\" href=\"./Database/index.html\">教師登入</a>" +
                 "</div>";
             return str;
