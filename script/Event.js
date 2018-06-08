@@ -74,19 +74,10 @@ doMission.afterProgress = function(name, para) {
 }
 
 //Scenes
-var lifeEvt = new Event("life");
-lifeEvt.execute = function() {
-    if (sceneManager.getLocation() != 0) sceneManager.updateLocation(0);
-}
-
-var skillEvt = new Event("skill");
-skillEvt.execute = function() {
-    if (sceneManager.getLocation() != 1) sceneManager.updateLocation(1);
-}
-
-var shopEvt = new Event("shop");
-shopEvt.execute = function() {
-    if (sceneManager.getLocation() != 2) sceneManager.updateLocation(2);
+var goScene = new Event("goScene");
+goScene.execute = function() {
+    var self = this;
+    if (sceneManager.getLocation() != self.para1) sceneManager.updateLocation(self.para1);
 }
 
 //Shop
@@ -112,4 +103,4 @@ changeStyle.execute = function() {
     sceneManager.updateLocation(sceneManager.getLocation());
 }
 
-export { lifeEvt, skillEvt, shopEvt, doMission, trade, changeStyle };
+export { goScene, doMission, trade, changeStyle };

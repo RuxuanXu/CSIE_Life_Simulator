@@ -103,10 +103,13 @@ class ViewElement {
         }
 
         this.sceneChoice = function() {
+            var func0 = "window.triggerEvent('goScene'," + "0" + ")";
+            var func1 = "window.triggerEvent('goScene'," + "1" + ")";
+            var func2 = "window.triggerEvent('goScene'," + "2" + ")";
             var str = "<div class=\"scene_choose\">" +
-                button("任務", "sceneBtn", "window.triggerEvent('life')") +
-                button("技能", "sceneBtn", "window.triggerEvent('skill')") +
-                button("商店", "sceneBtn", "window.triggerEvent('shop')") +
+                button("任務", "sceneBtn", func0) +
+                button("技能", "sceneBtn", func1) +
+                button("商店", "sceneBtn", func2) +
                 "</div>";
             return str;
         }

@@ -1,4 +1,4 @@
-import { lifeEvt, skillEvt, shopEvt, doMission, trade, changeStyle } from './Event.js';
+import { goScene, doMission, trade, changeStyle } from './Event.js';
 
 class EventHandler {
 
@@ -37,9 +37,7 @@ class EventHandler {
 
 const eventHandler = new EventHandler();
 Object.freeze(eventHandler);
-eventHandler.addEvent(lifeEvt);
-eventHandler.addEvent(skillEvt);
-eventHandler.addEvent(shopEvt);
+eventHandler.addEvent(goScene);
 eventHandler.addEvent(doMission);
 eventHandler.addEvent(trade);
 eventHandler.addEvent(changeStyle);
