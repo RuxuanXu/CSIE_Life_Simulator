@@ -51,7 +51,7 @@ class Event {
 //Missions
 var study = new Event("study");
 study.execute = function() {
-    if (!missionManager.isActive("study")) {
+    if (!missionManager.isActive("study") && player.getData().health >= 5) {
         missionManager.setActive("study", 1);
         study.runProgress("study");
     }
@@ -64,7 +64,7 @@ study.afterProgress = function() {
 //---
 var work = new Event("work");
 work.execute = function() {
-    if (!missionManager.isActive("work")) {
+    if (!missionManager.isActive("work") && player.getData().health >= 10) {
         missionManager.setActive("work", 1);
         work.runProgress("work");
     }
@@ -77,7 +77,7 @@ work.afterProgress = function() {
 //---
 var eat = new Event("eat");
 eat.execute = function() {
-    if (!missionManager.isActive("eat")) {
+    if (!missionManager.isActive("eat") && player.getData().money >= 80) {
         missionManager.setActive("eat", 1);
         eat.runProgress("eat");
     }

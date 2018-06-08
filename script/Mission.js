@@ -22,7 +22,7 @@ class Mission {
 }
 
 var study = new Mission('學習', "study", "體力-5 / 知識+10");
-var work = new Mission('工作', "work", "體力-20 / 金錢+100");
+var work = new Mission('工作', "work", "體力-10 / 金錢+100");
 var eat = new Mission('吃飯', "eat", "體力+20 / 金錢-80");
 
 export { study, work, eat };
