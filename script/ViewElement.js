@@ -85,8 +85,8 @@ class ViewElement {
                 "</div>" +
                 "</div>";
             var btnTxt = "升級" + "<div class=\"describe\">" + obj.cost[obj.level] + " 知識點</div>";
-            str += button(btnTxt, "skillBtn", "window.triggerEvent('upgrade')") +
-                "</div>";
+            var func = "window.triggerEvent('upGrade','" + obj.name + "',"+obj.cost[obj.level]+")";
+            str += button(btnTxt, "skillBtn", func) + "</div>";
             return str;
         }
 

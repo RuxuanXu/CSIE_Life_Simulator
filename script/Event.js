@@ -54,7 +54,21 @@ class Event {
         }
     }
 }
+//Upgrade
+var upGrade = new Event("upGrade");
+upGrade.execute = function() {
+    var self = this;
+    var name = self.para1;
+    var cost = parseInt(self.para2);
+    if (player.getData().point - cost >= 0){
+        player.addLevel(name); 
+        player.addPoint(-cost);
+        sceneManager.updateLocation(sceneManager.getLocation());
+        //console.log(player.getSkill());
 
+        // dataSet is { name: name, level: level, effect: effect, cost: cost };
+    }
+}
 //Missions
 var doMission = new Event("doMission");
 doMission.execute = function() {
@@ -189,5 +203,5 @@ upload.execute = function() {
     console.log(decode);
 }
 
-var eventList = [goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard, save, load, copy, upload];
+var eventList = [upGrade, goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard, save, load, copy, upload];
 export default eventList;

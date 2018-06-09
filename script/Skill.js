@@ -13,6 +13,11 @@ export default class Skill {
             var dataSet = { name: name, level: level, effect: effect, cost: cost };
             return dataSet;
         }
+        
+        this.Levelup = function() {
+            level++;
+            console.log(level);
+        }
     }
 }
 
