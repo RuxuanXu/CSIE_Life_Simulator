@@ -59,6 +59,7 @@ class Scene {
 
         this.renderFixed = function() {
             this.updateFixed();
+            showPopup = 0;
             for (var i in fixedElements) {
                 if (!fixedDiv[i]) fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
                 renderer.drawElement(fixedDiv[i], fixedElements[i]);
@@ -70,6 +71,8 @@ class Scene {
             for (var i in viewElements) {
                 div[i] = renderer.drawElement(div[i], viewElements[i]);
             }
+            var rand = Math.floor((Math.random() * 500));
+            if (rand == 1) showPopup = 1;
         }
     }
 }

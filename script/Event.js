@@ -126,10 +126,8 @@ accept.execute = function() {
     var self = this;
     if (self.para1) {
         sceneManager.updateLocation(3);
-        console.log("accept!");
     } else {
-        //sceneManager.updateLocation(sceneManager.getLocation());
-        console.log("reject!");
+        sceneManager.updateLocation(sceneManager.getLocation());
     }
 }
 
