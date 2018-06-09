@@ -54,7 +54,7 @@ input {
   display: inline-block;
   border: 1px solid #000;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
 }
 
 button {
@@ -69,8 +69,8 @@ button {
   width: 40%;
   height: 10%;
   margin: auto;
-  position: absolute;
   font-size: 1em;
+  position: relative;
 }
 
 button:hover {
