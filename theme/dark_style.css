@@ -106,7 +106,7 @@ button:active {
     font-size: 1em;
     color: white;
     background-color: black;
-    border: 1px solid #fff;
+    border: 1px solid black;
     width: 32%;
     height: 100%;
     z-index: -1;
@@ -195,7 +195,6 @@ button:active {
 .twoAnsBox {
     background-color: black;
     color: white;
-    position: absolute;
     height: 30%;
     width: 91%;
     bottom: 0.4em;
