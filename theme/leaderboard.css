@@ -16,7 +16,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 285px;
-  height: 295px;
   border-radius: 10px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
 }
@@ -27,6 +26,9 @@ body {
 }
 .leaderboard ol {
   counter-reset: leaderboard;
+  counter-reset: item;
+  list-style-type: none;
+  padding: 0px;
 }
 .leaderboard ol li {
   position: relative;
