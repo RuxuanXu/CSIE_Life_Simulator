@@ -58,7 +58,8 @@ class Player {
         }
 
         this.getSkill = function() {
-            return skillManager.getSkill();
+            console.log(skillManager.getSkills());
+            return skillManager.getSkills();
         }
 
         this.addMoney = function(amount) {
@@ -75,7 +76,9 @@ class Player {
             point += amount;
             webStorage.storeCache('point', point);
         }
-
+        this.addLevel = function(name){
+            skillManager.addLevel(name);
+        }
         this.getAnswer = function() {
             return answers;
         }
