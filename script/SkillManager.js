@@ -19,7 +19,15 @@ class SkillManager {
         this.addSkill = function(obj) {
             skills.push(obj);
         }
+        this.addLevel = function(name){
+            for(var i in skills){
+                if(skills[i].getData().name == name) {
+                    skills[i].Levelup();
+                }
 
+            }
+            console.log(skills[0].getData().level);
+        }
         //Make sure there's only one object.
         if (!SkillManager.instance) {
             SkillManager.instance = this;
