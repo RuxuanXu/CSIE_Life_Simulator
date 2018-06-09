@@ -21,4 +21,5 @@ var skillB1 = new Skill('體力的道路', '消耗體力減少', 100, 1000, 8000
 var skillC1 = new Skill('幸運的道路', '獲得金錢增加', 100, 1000, 8000);
 var skillD1 = new Skill('邪惡的道路', '自動完成任務', 500, 5000, 40000);
 
-export { skillA1, skillB1, skillC1, skillD1 };
+var skillList = [skillA1, skillB1, skillC1, skillD1];
+export { skillList };

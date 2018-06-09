@@ -1,4 +1,4 @@
-import { skillA1, skillB1, skillC1, skillD1 } from './Skill.js';
+import { skillList } from './Skill.js';
 
 class SkillManager {
 
@@ -31,9 +31,8 @@ class SkillManager {
 
 const skillManager = new SkillManager();
 Object.freeze(skillManager);
-skillManager.addSkill(skillA1);
-skillManager.addSkill(skillB1);
-skillManager.addSkill(skillC1);
-skillManager.addSkill(skillD1);
+for (var i in skillList) {
+    skillManager.addSkill(skillList[i]);
+}
 
 export default skillManager;
