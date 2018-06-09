@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>why cant run</title>  
+  
+</head>  
+<body>  
+  
+  
+<script>  
+  
+     
+	// 加密函数
+function encode(code)  
+{    
+   var str=String.fromCharCode(code.charCodeAt(0)+code.length);  
+   for(var i=1;i<code.length;i++){  
+       str+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));  
+   }  
+   return escape(str);  // js's encode 
+}  
+// 解密函数
+function decode(code)  
+{  
+   code=unescape(code);  
+   var str=String.fromCharCode(code.charCodeAt(0)-code.length);  
+   for(var i=1;i<code.length;i++){  
+       str+=String.fromCharCode(code.charCodeAt(i)-str.charCodeAt(i-1));  
+   }  
+   return str;  
+}  
+	var a = 'try this';
+	console.log(a);
+	a = encode(a);
+	console.log(a);
+	a = decode(a);
+	console.log(a);
+</script>  
+</body>  
+</html>
