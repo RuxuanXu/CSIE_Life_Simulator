@@ -195,6 +195,7 @@ button:active {
 .twoAnsBox {
     background-color: black;
     color: white;
+    position: absolute;
     height: 30%;
     width: 91%;
     bottom: 0.4em;
