@@ -59,7 +59,6 @@ class Scene {
 
         this.renderFixed = function() {
             this.updateFixed();
-            showPopup = 0;
             for (var i in fixedElements) {
                 if (!fixedDiv[i]) fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
                 renderer.drawElement(fixedDiv[i], fixedElements[i]);
@@ -73,6 +72,14 @@ class Scene {
             }
             var rand = Math.floor((Math.random() * 500));
             if (rand == 1) showPopup = 1;
+            if (showPopup) {
+                this.updateFixed();
+                for (var i in fixedElements) {
+                    if (!fixedDiv[i]) fixedDiv[i] = renderer.drawElement(fixedDiv[i], fixedElements[i]);
+                    renderer.drawElement(fixedDiv[i], fixedElements[i]);
+                }
+                showPopup = 0;
+            }
         }
     }
 }
@@ -83,10 +90,10 @@ lifeSce.setFixed = function() {
     lifeSce.addFixed(viewElement.gameChoice());
     lifeSce.addFixed(viewElement.sceneChoice());
     lifeSce.addFixed(viewElement.missionList());
+    if (this.getPopup()) lifeSce.addFixed(viewElement.popup());
 }
 lifeSce.setView = function() {
     lifeSce.addElement(viewElement.gameInfo());
-    if (this.getPopup()) lifeSce.addElement(viewElement.popup());
 }
 
 var skillSce = new Scene();
@@ -94,11 +101,11 @@ skillSce.setFixed = function() {
     skillSce.addFixed(viewElement.gameChoice());
     skillSce.addFixed(viewElement.sceneChoice());
     skillSce.addFixed(viewElement.skillList());
+    if (this.getPopup()) skillSce.addFixed(viewElement.popup());
 }
 
 skillSce.setView = function() {
     skillSce.addElement(viewElement.gameInfo());
-    if (this.getPopup()) skillSce.addElement(viewElement.popup());
 }
 
 var shopSce = new Scene();
@@ -106,11 +113,11 @@ shopSce.setFixed = function() {
     shopSce.addFixed(viewElement.gameChoice());
     shopSce.addFixed(viewElement.sceneChoice());
     shopSce.addFixed(viewElement.itemList());
+    if (this.getPopup()) shopSce.addFixed(viewElement.popup());
 };
 
 shopSce.setView = function() {
     shopSce.addElement(viewElement.gameInfo());
-    if (this.getPopup()) shopSce.addElement(viewElement.popup());
 };
 
 var testSce = new Scene();
