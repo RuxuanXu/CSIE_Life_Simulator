@@ -120,4 +120,40 @@ changeStyle.execute = function() {
     sceneManager.updateLocation(sceneManager.getLocation());
 }
 
-export { goScene, doMission, trade, changeStyle };
+//Quest Events
+var accept = new Event("accept");
+accept.execute = function() {
+    var self = this;
+    if (self.para1) {
+        sceneManager.updateLocation(3);
+        console.log("accept!");
+    } else {
+        //sceneManager.updateLocation(sceneManager.getLocation());
+        console.log("reject!");
+    }
+}
+
+var answer = new Event("answer");
+answer.execute = function() {
+    var self = this;
+    var scene = sceneManager.getScene(sceneManager.getLocation());
+    if (self.para1) {
+        sceneManager.updateLocation(4);
+        player.addAnswer(1);
+    } else {
+        sceneManager.updateLocation(4);
+        player.addAnswer(0);
+    }
+}
+
+var returnTo = new Event("return");
+returnTo.execute = function() {
+    sceneManager.updateLocation(0);
+}
+
+var leaderboard = new Event("rank");
+leaderboard.execute = function() {
+    window.location.href = "leaderboard.html";
+}
+
+export { goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard };

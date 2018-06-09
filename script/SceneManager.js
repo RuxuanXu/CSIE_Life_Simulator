@@ -1,5 +1,5 @@
 import player from './Player.js';
-import { lifeSce, skillSce, shopSce } from './Scene.js';
+import { lifeSce, skillSce, shopSce, testSce, resultSce } from './Scene.js';
 import webStorage from './WebStorage.js';
 
 class SceneManager {
@@ -21,6 +21,10 @@ class SceneManager {
         //Public Methods
         this.getStyle = function() {
             return style;
+        }
+
+        this.getScene = function(idx) {
+            return scenes[idx];
         }
 
         this.setStyle = function(n) {
@@ -62,6 +66,8 @@ class SceneManager {
             scenes[0] = lifeSce;
             scenes[1] = skillSce;
             scenes[2] = shopSce;
+            scenes[3] = testSce;
+            scenes[4] = resultSce;
         }
         return SceneManager.instance;
     }

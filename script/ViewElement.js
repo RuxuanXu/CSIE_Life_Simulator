@@ -1,5 +1,6 @@
 import player from './Player.js';
 import sceneManager from './SceneManager.js';
+import questManager from './QuestManager.js';
 
 class ViewElement {
 
@@ -94,6 +95,35 @@ class ViewElement {
             return str;
         }
 
+        var questionBox = function(question) {
+            var str = "<div class=\"question\">";
+            str += question.question;
+            str += "</div>";
+            return str;
+        }
+        var answer = function(txt, answerId, rightId) {
+            var str;
+            if (answerId == rightId) {
+                str = button(txt, "answerBtn", "window.triggerEvent('answer',1)");
+            } else {
+                str = button(txt, "answerBtn", "window.triggerEvent('answer',0)");
+            }
+            return str;
+        }
+
+        var answerBox = function(question) {
+            var str = "<div class=\"answer\">";
+            str += answer(question.answers[0], 0, question.sol);
+            str += "<div style=\"line-height:50%;\"><br></div>";
+            str += answer(question.answers[1], 1, question.sol);
+            str += "<div style=\"line-height:50%;\"><br></div>";
+            str += answer(question.answers[2], 2, question.sol);
+            str += "<div style=\"line-height:50%;\"><br></div>";
+            str += answer(question.answers[3], 3, question.sol);
+            str += "</div>";
+            return str;
+        }
+
         //Public Methods
         this.gameChoice = function() {
             var str = "<div class=\"game_choose\">" +
@@ -159,6 +189,44 @@ class ViewElement {
             str += "</div>";
             return str;
 
+        }
+
+        this.popup = function() {
+            var str = "<div class=\"popup\">";
+            str += "Testing Time!";
+            str += "<div class=\"twoAnsBox\">";
+            str += button("接受", "questBtn", "window.triggerEvent('accept',1)");
+            str += "&nbsp;&nbsp;"
+            str += button("拒絕", "questBtn", "window.triggerEvent('accept',0)");
+            str += "</div>" + "</div>";
+            return str;
+        }
+
+        this.result = function() {
+            var str = "<div class=\"popup\">";
+            var ans = player.getAnswer();
+            var last = ans[ans.length - 1]
+            if (last) {
+                str += "正確答案(^^)y";
+            } else {
+                str += "答錯了(~_~)";
+            }
+            str += "<div class=\"twoAnsBox\">";
+            str += button("知道了", "questBtn", "window.triggerEvent('return')");
+            str += "</div>" + "</div>";
+            return str;
+        }
+
+        this.ansProgress = function(id) {
+            var str = "<div class=\"progress2\">" +
+                "<div class=\"bar2\" id=\"" + id + "\"></div>";
+            return str;
+        }
+
+        this.quest = function() {
+            var question = questManager.getRandomQuest();
+            var str = questionBox(question) + answerBox(question);
+            return str;
         }
     }
 }

@@ -10,6 +10,7 @@ class Scene {
         var fixedElements = [];
         var div = [];
         var fixedDiv = [];
+        var showPopup = 0;
 
         //Public Methods
         this.setView = function() {
@@ -20,6 +21,14 @@ class Scene {
         this.setFixed = function() {
             return 0;
             //declare after create object
+        }
+        this.getPopup = function() {
+            return showPopup;
+        }
+
+        this.setPopup = function(n) {
+            //random setting
+            showPopup = n;
         }
 
         this.updateElements = function() {
@@ -74,6 +83,7 @@ lifeSce.setFixed = function() {
 }
 lifeSce.setView = function() {
     lifeSce.addElement(viewElement.gameInfo());
+    if (this.getPopup()) lifeSce.addElement(viewElement.popup());
 }
 
 var skillSce = new Scene();
@@ -85,6 +95,7 @@ skillSce.setFixed = function() {
 
 skillSce.setView = function() {
     skillSce.addElement(viewElement.gameInfo());
+    if (this.getPopup()) skillSce.addElement(viewElement.popup());
 }
 
 var shopSce = new Scene();
@@ -96,6 +107,20 @@ shopSce.setFixed = function() {
 
 shopSce.setView = function() {
     shopSce.addElement(viewElement.gameInfo());
+    if (this.getPopup()) shopSce.addElement(viewElement.popup());
 };
 
-export { lifeSce, skillSce, shopSce };
+var testSce = new Scene();
+testSce.setFixed = function() {
+    testSce.addFixed(viewElement.quest());
+}
+testSce.setView = function() {
+    testSce.addElement(viewElement.ansProgress(1));
+}
+
+var resultSce = new Scene();
+resultSce.setFixed = function() {
+    resultSce.addFixed(viewElement.result());
+}
+
+export { lifeSce, skillSce, shopSce, testSce, resultSce };

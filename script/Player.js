@@ -14,6 +14,7 @@ class Player {
         var point = 0;
         var items = [];
         var skills = [];
+        var answers = [];
 
         var addItem = function(obj) {
             items.push(obj);
@@ -73,6 +74,14 @@ class Player {
         this.addPoint = function(amount) {
             point += amount;
             webStorage.storeCache('point', point);
+        }
+
+        this.getAnswer = function() {
+            return answers;
+        }
+
+        this.addAnswer = function(ans) {
+            answers.push(ans);
         }
 
         //Make sure there's only one object.
