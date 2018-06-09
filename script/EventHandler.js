@@ -1,4 +1,4 @@
-import { goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard } from './Event.js';
+import eventList from './Event.js';
 
 class EventHandler {
 
@@ -37,13 +37,8 @@ class EventHandler {
 
 const eventHandler = new EventHandler();
 Object.freeze(eventHandler);
-eventHandler.addEvent(goScene);
-eventHandler.addEvent(doMission);
-eventHandler.addEvent(trade);
-eventHandler.addEvent(changeStyle);
-eventHandler.addEvent(accept);
-eventHandler.addEvent(answer);
-eventHandler.addEvent(returnTo);
-eventHandler.addEvent(leaderboard);
+for (var i in eventList) {
+    eventHandler.addEvent(eventList[i]);
+}
 
 export default eventHandler;

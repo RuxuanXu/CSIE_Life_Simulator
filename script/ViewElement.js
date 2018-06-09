@@ -1,6 +1,7 @@
 import player from './Player.js';
 import sceneManager from './SceneManager.js';
 import questManager from './QuestManager.js';
+import encoder from './Encoder.js';
 
 class ViewElement {
 
@@ -228,6 +229,36 @@ class ViewElement {
             var str = questionBox(question) + answerBox(question);
             return str;
         }
+
+        this.saveBox = function() {
+            var str = "<div class=\"saveTxt\">" +
+                "保存此段代碼，<br>可轉移進度至其他瀏覽器遊玩。" +
+                "</div>";
+            str += "<div><textarea class=\"saveBox\" id=\"save\" cols=\"40\" rows=\"5\">";
+            str += encoder.encode(JSON.stringify(player.getData()));
+            str += "</textarea></div>";
+            str += "<div class=\"copyBtnBox\">";
+            str += button("複製代碼", "copyBtn", "window.triggerEvent('copy')");
+            str += "&nbsp;&nbsp;"
+            str += button("回到遊戲", "copyBtn", "window.triggerEvent('return')");
+            str += "</div>" + "</div>";
+            return str;
+        }
+
+        this.loadBox = function() {
+            var str = "<div class=\"saveTxt\">" +
+                "貼上存檔代碼，<br>讀取遊戲進度。" +
+                "</div>";
+            str += "<div><textarea class=\"saveBox\" id=\"load\" cols=\"40\" rows=\"5\">";
+            str += "</textarea></div>";
+            str += "<div class=\"copyBtnBox\">";
+            str += button("提交代碼", "copyBtn", "window.triggerEvent('upload')");
+            str += "&nbsp;&nbsp;"
+            str += button("回到遊戲", "copyBtn", "window.triggerEvent('return')");
+            str += "</div>" + "</div>";
+            return str;
+        }
+
     }
 }
 

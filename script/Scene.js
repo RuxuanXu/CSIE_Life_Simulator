@@ -133,4 +133,15 @@ resultSce.setFixed = function() {
     resultSce.addFixed(viewElement.result());
 }
 
-export { lifeSce, skillSce, shopSce, testSce, resultSce };
+var saveSce = new Scene();
+saveSce.setFixed = function() {
+    saveSce.addFixed(viewElement.saveBox());
+}
+
+var loadSce = new Scene();
+loadSce.setFixed = function() {
+    loadSce.addFixed(viewElement.loadBox());
+}
+
+var sceneList = [lifeSce, skillSce, shopSce, testSce, resultSce, saveSce, loadSce];
+export default sceneList;

@@ -1,4 +1,4 @@
-import { test, book, food } from './Item.js';
+import { itemList } from './Item.js';
 import Item from './Item.js';
 import webStorage from './WebStorage.js';
 
@@ -64,9 +64,9 @@ class Shop {
                     }
                 }
             } else {
-                addItem(test);
-                addItem(book);
-                addItem(food);
+                for (var i in itemList) {
+                    addItem(itemList[i]);
+                }
             }
         }
         return Shop.instance;

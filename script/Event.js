@@ -1,6 +1,7 @@
 import sceneManager from './SceneManager.js';
 import missionManager from './MissionManager.js';
 import player from './Player.js';
+import encoder from './Encoder.js';
 
 class Event {
 
@@ -154,4 +155,39 @@ leaderboard.execute = function() {
     window.location.href = "leaderboard.html";
 }
 
-export { goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard };
+//SL
+var save = new Event("save");
+save.execute = function() {
+    sceneManager.updateLocation(5);
+}
+
+var load = new Event("load");
+load.execute = function() {
+    sceneManager.updateLocation(6);
+}
+
+var copy = new Event("copy");
+copy.execute = function() {
+    var copy = document.getElementById('save').innerHTML;
+
+    var text = document.createElement("textarea");
+    text.value = copy;
+    document.body.appendChild(text);
+    text.select();
+    try {
+        document.execCommand('copy');
+    } catch (err) {
+        console.log('Copy Failed');
+    }
+    document.body.removeChild(text);
+}
+
+var upload = new Event("upload");
+upload.execute = function() {
+    var code = document.getElementById("load").value;
+    var decode = encoder.decode(code);
+    console.log(decode);
+}
+
+var eventList = [goScene, doMission, trade, changeStyle, accept, answer, returnTo, leaderboard, save, load, copy, upload];
+export default eventList;

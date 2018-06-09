@@ -17,4 +17,5 @@ var test = new Item('測試用品', 20000);
 var book = new Item('微積分教科書', 2000);
 var food = new Item('營養午餐', 100);
 
-export { test, book, food };
+var itemList = [test, book, food];
+export { itemList };

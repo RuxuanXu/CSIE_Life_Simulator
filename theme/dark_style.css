@@ -311,6 +311,58 @@ button:active {
     background-color: palevioletred;
 }
 
+.saveTxt {
+    color: white;
+    font-size: 0.9em;
+    position: absolute;
+    height: 20%;
+    width: 80%;
+    top: 22%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0.8em;
+}
+
+.saveBox {
+    background-color: #000;
+    border-style: solid;
+    border: 2px solid grey;
+    color: white;
+    position: absolute;
+    height: 30%;
+    width: 80%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0.8em;
+}
+
+.copyBtnBox {
+    position: absolute;
+    height: 6%;
+    width: 80%;
+    top: 66%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 0.8em;
+    text-align: center
+}
+
+.copyBtn {
+    color: white;
+    font-size: 1em;
+    border-style: solid;
+    border-radius: 1.4em;
+    border: 1px solid grey;
+    height: 100%;
+    width: 33%;
+}
+
 
 /*Scroll bar style: Work for Chrome*/
 

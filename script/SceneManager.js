@@ -1,5 +1,5 @@
 import player from './Player.js';
-import { lifeSce, skillSce, shopSce, testSce, resultSce } from './Scene.js';
+import sceneList from './Scene.js';
 import webStorage from './WebStorage.js';
 
 class SceneManager {
@@ -63,11 +63,9 @@ class SceneManager {
             if (temp) style = temp;
 
             //Declare all scenes here
-            scenes[0] = lifeSce;
-            scenes[1] = skillSce;
-            scenes[2] = shopSce;
-            scenes[3] = testSce;
-            scenes[4] = resultSce;
+            for (var i in sceneList) {
+                scenes[i] = sceneList[i];
+            }
         }
         return SceneManager.instance;
     }
