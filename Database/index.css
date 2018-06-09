@@ -6,7 +6,7 @@ body {
 }
 
 h1{
-  font-size: 180%;
+  font-size: 150%;
   background-color:#000;
   color: white ;
   padding: 10px;
@@ -14,7 +14,7 @@ h1{
 }
 
 h2{
-  font-size: 120%;
+  font-size: 100%;
 }
 
 @media screen and (max-height: 320px) {
@@ -41,12 +41,13 @@ h2{
   }
 }
 
+
 label {
-  font-size: 1em;
+  font-size: 100%;
 }
 
 input {
-  font-size: 1em;
+  font-size: 80%;
   width: 60%;
   padding: 12px 20px;
   margin: 5px ;
@@ -82,8 +83,7 @@ button:active {
 /* Add padding to containers */
 .container {
   position: absolute;
-  width:80%;
-  height:80%;
+  width:275px;
   top:20%;
   right:0;
   bottom:0;
@@ -92,3 +92,4 @@ button:active {
   text-align: center;
 
 }
+
