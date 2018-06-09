@@ -21,23 +21,11 @@ h2{
   body {
     font-size: 50%;
   }
-  h1 {
-    font-size: 125%;
-  }
-  h2 {
-    font-size: 75%;
-  }
 }
 
 @media screen and (min-height: 550px) {
   body {
     font-size: 120%;
-  }
-  h1 {
-    font-size: 195%;
-  }
-  h2 {
-    font-size: 145%;
   }
 }
 
@@ -45,23 +33,11 @@ h2{
   body {
     font-size: 180%;
   }
-  h1 {
-    font-size: 255%;
-  }
-  h2 {
-    font-size: 205%;
-  }
 }
 
 @media screen and (min-height: 1200px) {
   body {
     font-size: 280%;
-  }
-  h1 {
-    font-size: 355%;
-  }
-  h2 {
-    font-size: 305%;
   }
 }
 
