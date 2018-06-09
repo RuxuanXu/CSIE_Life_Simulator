@@ -6,12 +6,16 @@ body {
 }
 
 h1{
+  font-size: 180%;
   background-color:#000;
   color: white ;
   padding: 10px;
   text-align: center;
 }
 
+h2{
+  font-size: 120%;
+}
 
 @media screen and (max-height: 320px) {
   body {
@@ -87,16 +91,4 @@ button:active {
   margin:auto;
   text-align: center;
 
-}
-
-.btncontainer {
-  position: absolute;
-  width:80%;
-  height:80%;
-  top:120%;
-  right:0;
-  bottom:0;
-  left:0;
-  margin:auto;
-  text-align: center;
 }
