@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
-<style>
-button {
-    background-color: #00BBFF;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-#addfield {
-    width: 600px;
-    background-color: #92b2f2;
-    float: left;
-}
-</style>
-<head>
-    <title>ADD Comment</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="index.css?12"> </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+<style type="text/css"></style>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="index.css?24">
 
-<body style="background-color:gray">
+<head> <title>ADD Comment</title> </head>
 
-    <div id="wrapper">
-        <div id="banner">
-            <p>新增題目</p>
-        </div>
-                    
-<h3><b>新增題目</b></h3>
+
+<body>
+<h1><b>新增題目</b></h1>
 <form method='post' action='add_comment.php'>
-	<h3><b>教師編號！</b></h3>
-    <input type="text" placeholder="Enter e_id" name="e_id" required >
+	<div class="container">
+		<h2><b>題目！</b></h2>
+		<TextArea Name="question" Cols="40" Rows="3" required> Enter question </TextArea> 
+		
+		<h2><b>選項１</b></h2>
+		<TextArea Name="option1" Cols="40" Rows="3" required></TextArea>
 
-    <h3><b>題目！</b></h3>
-    <input type="text" placeholder="Enter question" name="question" required >
-
-    <h3><b>答案！</b></h3>
-    <input type="text" placeholder="Enter answer" name="answer" required >
-
-    <br><br><br>
-    <button type="submit" style="background-color:#EA0000" >Add</button>
-    </form>
+		<h2><b>選項２</b></h2>
+		<TextArea Name="option2" Cols="40" Rows="3" required></TextArea>
+		
+		<h2><b>選項３</b></h2>
+		<TextArea Name="option3" Cols="40" Rows="3" required></TextArea>
+		
+		<h2><b>選項４</b></h2>
+		<TextArea Name="option4" Cols="40" Rows="3" required></TextArea>
+		
+		<h2><b>答案！</b></h2>
+		1<input type="radio" class='asw_rd' name="answer" value="1" checked> 
+		2<input type="radio" class='asw_rd' name="answer" value="2"> 
+		3<input type="radio" class='asw_rd' name="answer" value="3"> 
+		4<input type="radio" class='asw_rd' name="answer" value="4"> 
+		
+		<br><br><br>
+		<button type="submit" >Add</button>
+	</div>
+</form>
                 
                 <br><br><br>
             </div>

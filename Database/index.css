@@ -1,4 +1,4 @@
-body {
+﻿body {
   background-color: #fff;
   font-family: Microsoft JhengHei;
   font-size: 75%;
@@ -43,6 +43,7 @@ h2{
 
 
 label {
+  text-align: center;
   font-size: 100%;
 }
 
@@ -82,8 +83,38 @@ button:active {
   background-color: pink;
 }
 
+.special {
+	width :20%;
+	top:20%;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+	text-align: right;
+}
+.asw_rd {
+	width :5%;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+	font-size: 80%;
+}
+
 /* Add padding to containers */
 .container {
+  overflow: scroll;
+  position: absolute;
+  width:80%;
+  top:20%;
+  right:0;
+  bottom:0;
+  left:0;
+  margin:auto;
+  text-align: center;
+}
+.i_container {
   position: absolute;
   width:80%;
   top:20%;
@@ -94,4 +125,3 @@ button:active {
   text-align: center;
 
 }
-

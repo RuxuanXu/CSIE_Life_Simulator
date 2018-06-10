@@ -18,7 +18,7 @@ $refer = $_POST['refer'];
     {
 		if(list($id,$admin)=mysql_fetch_row($result))
 		{
-			setcookie('id',$id);
+			setcookie('id',$user);
 			setcookie('admin',$admin);
 			header('Location: comment.php');
 		}
@@ -27,7 +27,7 @@ $refer = $_POST['refer'];
     else
     {
         // Not authenticated
-		header('Location: index.html');
+		 header('Location: index.html');
     }
 
 ?>
