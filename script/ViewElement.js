@@ -289,6 +289,15 @@ class ViewElement {
             return str;
         }
 
+        this.returnUrl= function() {
+            var str = "";
+            str += "<a href=\"index.html\">";
+            str += "返回遊戲";
+            str += "</a>";
+            return str;
+        }
+
+
     }
 }
 

@@ -149,6 +149,7 @@ recordSce.setFixed = function() {
     document.querySelector('head').innerHTML += '<link rel="stylesheet" type="text/css" href="./theme/leaderboard.css" />';
     document.querySelector('head').innerHTML += '<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />';
     recordSce.addFixed(viewElement.recordList());
+    recordSce.addFixed(viewElement.returnUrl());
 }
 
 var sceneList = [lifeSce, skillSce, shopSce, testSce, resultSce, saveSce, loadSce, recordSce];
