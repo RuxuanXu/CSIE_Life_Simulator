@@ -1,4 +1,4 @@
-export default class Record {
+class Record {
 
     constructor(name, score) {
 
@@ -20,4 +20,4 @@ var record_4 = new Record('Trevor McCormick', 245);
 var record_5 = new Record('Andrew Fox', 203);
 
 var recordList = [record_1, record_2, record_3, record_4, record_5];
-export { recordList };
+export default { recordList };

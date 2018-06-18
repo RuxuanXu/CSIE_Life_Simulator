@@ -61,7 +61,7 @@ upGrade.execute = function() {
     var name = self.para1;
     var cost = parseInt(self.para2);
     if (player.getData().point - cost >= 0){
-        player.addLevel(name); 
+        player.addLevel(name);
         player.addPoint(-cost);
         sceneManager.updateLocation(sceneManager.getLocation());
         //console.log(player.getSkill());
@@ -166,7 +166,8 @@ returnTo.execute = function() {
 
 var leaderboard = new Event("rank");
 leaderboard.execute = function() {
-    window.location.href = "leaderboard.html";
+    //window.location.href = "leaderboard.html";
+    sceneManager.updateLocation(7);
 }
 
 //SL
