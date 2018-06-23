@@ -2,6 +2,7 @@ import player from './Player.js';
 import sceneManager from './SceneManager.js';
 import questManager from './QuestManager.js';
 import encoder from './Encoder.js';
+import Record from './Record.js';
 
 class ViewElement {
 
@@ -72,6 +73,20 @@ class ViewElement {
                 "</div>" +
                 button(btnTxt, "shopBtn", func) +
                 "</div>";
+            return str;
+        }
+
+        var gameRecord = function(record) {
+            var name = record.name;
+            var score = record.score;
+            var str = "<li>" +
+                "<mark>" +
+                  name +
+                "</mark>" +
+                "<small>" +
+                  score +
+                "</small>" +
+                "</li>";
             return str;
         }
 
@@ -180,6 +195,21 @@ class ViewElement {
             return str;
         }
 
+        this.recordList = function() {
+            var records = Record['recordList'];
+            var str = "<div class=\"leaderboard\">" +
+                "<h1>" +
+                  "Players" +
+                "</h1>";
+            str += "<ol>";
+            for (var r in records) {
+                str += gameRecord(records[r].getData());
+            }
+            str += "</ol>";
+            str += "</div>";
+            return str;
+        }
+
         this.skillList = function() {
             var skills = player.getSkills();
             var str = "<div class=\"skills\">";
@@ -258,6 +288,15 @@ class ViewElement {
             str += "</div>" + "</div>";
             return str;
         }
+
+        this.returnUrl= function() {
+            var str = "";
+            str += "<a href=\"index.html\">";
+            str += "返回遊戲";
+            str += "</a>";
+            return str;
+        }
+
 
     }
 }
